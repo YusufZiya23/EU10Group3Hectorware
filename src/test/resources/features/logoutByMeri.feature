@@ -1,5 +1,5 @@
 Feature: Logout function
-  @wipo
+  @wip
   Scenario: User logout from home page
     Given User is on home page
     When user click on Account dropdown button
