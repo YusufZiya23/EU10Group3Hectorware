@@ -1,6 +1,6 @@
 Feature: Login feature
 
-  @wip
+
   Scenario: Login with valid credentials
     Given user navigates to the URL
     When user enters valid username
