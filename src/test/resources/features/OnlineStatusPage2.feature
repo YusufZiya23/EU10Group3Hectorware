@@ -2,7 +2,6 @@ Feature: Online status
 
 
 
-
   User Story: User can change Online Status
 
 
