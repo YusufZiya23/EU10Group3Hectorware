@@ -1,5 +1,5 @@
 Feature: Login function by Meri
-  @wipo
+
   Scenario: User log in with valid credentials
     Given User go to the url
     When User enter valid username
