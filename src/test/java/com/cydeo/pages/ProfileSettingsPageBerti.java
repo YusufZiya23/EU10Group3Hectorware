@@ -17,7 +17,6 @@ public class ProfileSettingsPageBerti {
     @FindBy(xpath = "//*[@id=\"expanddiv\"]/ul/li[2]/a")
     public WebElement Settings;
 
-
     @FindBy(xpath = "//*[@id=\"displayname\"]")
     public WebElement FullName;
 
@@ -41,6 +40,19 @@ public class ProfileSettingsPageBerti {
 
     @FindBy(xpath = "//*[@id=\"localeinput\"]")
     public WebElement LocaleDropDown;
+
+    @FindBy(xpath = "//*[@id=\"nextcloud\"]/div")
+    public WebElement dashboard;
+
+    public void goToProfileModule(){
+        ProfileModule.click();
+        Settings.click();
+    }
+    public void getBackAndForwardIntoProfileModule(){
+        dashboard.click();
+        ProfileModule.click();
+        Settings.click();
+    }
 
 
 }
