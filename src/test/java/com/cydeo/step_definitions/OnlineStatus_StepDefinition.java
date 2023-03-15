@@ -17,7 +17,7 @@ public class OnlineStatus_StepDefinition {
 
     @Given("user navigates to the URL {string}")
     public void user_navigates_to_the_url(String string) {
-        loginPage.logIn();
+       loginPage.logIn();
     }
     @When("user click to the avatar")
     public void user_click_to_the_avatar() {
