@@ -1,0 +1,8 @@
+Feature: Profile Settings Functionality, if visiable and changeable
+
+
+  Scenario: User should see Settings under the profile module
+
+    When User logs in with valid credentions
+    And User clicks on Avatar on the rights side of the top
+    Then User sees dropdown with Settings inside
