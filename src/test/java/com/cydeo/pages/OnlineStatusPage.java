@@ -15,12 +15,14 @@ public class OnlineStatusPage {
 
 
 
-    @FindBy(xpath = "//div[@class='menutoggle']")
+    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
     public WebElement avatarButton;
 
-    @FindBy(xpath = "//a[@class='user-status-menu-item__toggle']")
-    public WebElement SetStatusLinkDropDown;
+    @FindBy(xpath = "//div[@class='user-status-menu-item']/a")
+   public WebElement SetStatusLinkDropDown;
 
+    @FindBy(xpath = "//div[@class='set-status-modal']")
+    public WebElement OnlineStatusBox;
 
 
 
