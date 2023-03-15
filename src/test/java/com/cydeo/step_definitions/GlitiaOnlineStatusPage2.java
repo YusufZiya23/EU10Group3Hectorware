@@ -7,7 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class OnlineStatusPage2 {
+public class GlitiaOnlineStatusPage2 {
 
    LoginPage loginPage =new  LoginPage();
 
