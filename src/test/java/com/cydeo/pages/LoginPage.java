@@ -27,6 +27,5 @@ public class LoginPage {
         username.sendKeys(ConfigurationReader.getProperty("username"));
         password.sendKeys(ConfigurationReader.getProperty("password"));
         LoginButton.click();
-
     }
 }
