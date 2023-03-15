@@ -11,7 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 public class Hooks {
 
     // import from io.cucumber.java not from junit
-
+/*
     @After
     public void teardownScenario(Scenario scenario){
 
@@ -28,6 +28,7 @@ public class Hooks {
     }
 
 
-
+ */
 
 }
+
