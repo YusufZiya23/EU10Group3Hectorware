@@ -5,20 +5,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class OnlineStatusPage2 {
-    public OnlineStatusPage2() {
+public class OnlineStatusPage {
+
+
+
+    public OnlineStatusPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath ="//div[@class='menutoggle']")
+
+
+    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
     public WebElement avatarButton;
 
-    @FindBy(xpath ="//div[@class='user-status-menu-item__toggle']")
-    public WebElement SetStatusLinkDropdown;
+    @FindBy(xpath = "//div[@class='user-status-menu-item']/a")
+   public WebElement SetStatusLinkDropDown;
+
+    @FindBy(xpath = "//div[@class='set-status-modal']")
+    public WebElement OnlineStatusBox;
 
 
-    //@FindBy(id = "submit-form")
-    //public WebElements ;
+
+
+
+
 
 
 }
