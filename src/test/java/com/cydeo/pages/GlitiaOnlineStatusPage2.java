@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class OnlineStatusPage2 {
-    public OnlineStatusPage2() {
+public class GlitiaOnlineStatusPage2 {
+    public GlitiaOnlineStatusPage2() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
