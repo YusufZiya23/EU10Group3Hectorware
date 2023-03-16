@@ -32,4 +32,4 @@ text to change the "Online status" by clicking the options.
 
           When User see "Online status" text. And  the options by the right order.
           And  User click the "Online" option.
-          Then verify user click the "Away" option   .
+          Then verify user click the "Away" option.
