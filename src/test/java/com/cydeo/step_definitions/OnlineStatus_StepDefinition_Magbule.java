@@ -1,19 +1,17 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.LoginPage;
-import com.cydeo.pages.OnlineStatusPage;
-import com.cydeo.utilites.ConfigurationReader;
-import com.cydeo.utilites.Driver;
+import com.cydeo.pages.OnlineStatusPageMagbule;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class OnlineStatus_StepDefinition {
+public class OnlineStatus_StepDefinition_Magbule {
 
     LoginPage loginPage = new LoginPage();
 
-    OnlineStatusPage onlineStatusPage=new OnlineStatusPage();
+    OnlineStatusPageMagbule onlineStatusPage=new OnlineStatusPageMagbule();
 
     @Given("user navigates to the URL {string}")
     public void user_navigates_to_the_url(String string) {
