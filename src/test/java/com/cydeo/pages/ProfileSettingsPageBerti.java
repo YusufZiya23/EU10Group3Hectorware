@@ -17,6 +17,7 @@ public class ProfileSettingsPageBerti {
     @FindBy(xpath = "//*[@id=\"expanddiv\"]/ul/li[2]/a")
     public WebElement Settings;
 
+
     @FindBy(xpath = "//*[@id=\"displayname\"]")
     public WebElement FullName;
 
