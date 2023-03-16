@@ -22,7 +22,7 @@ public class OnlineStatusPageMagbule {
    public WebElement SetStatusLinkDropDown;
 
     @FindBy(xpath = "//div[@class='set-status-modal']")
-    public WebElement OnlineStatusBox   ;
+    public WebElement OnlineStatusBox;
 
 
 
