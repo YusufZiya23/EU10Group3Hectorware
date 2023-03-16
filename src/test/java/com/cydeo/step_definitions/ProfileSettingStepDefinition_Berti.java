@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ProfileSettingStepDefinition_Berti {
     ProfileSettingsPageBerti profileSettingsPageBerti = new ProfileSettingsPageBerti();
@@ -24,14 +25,16 @@ public class ProfileSettingStepDefinition_Berti {
         BrowserUtils.waitForPageToLoad(10);
     }
 
+    //Language dropdown verification
+    //Language dropdown verification
     @When("you click profile module")
     public void you_click_profile_module() {
-        profileSettingsPageBerti.ProfileModule.click();
+        profileSettingsPageBerti.profileModule.click();
     }
 
     @When("when you click setting under profile module")
     public void when_you_click_setting_under_profile_module() {
-        profileSettingsPageBerti.Settings.click();
+        profileSettingsPageBerti.settings.click();
     }
 
     @Then("you should see all the options of dropdown")
@@ -45,7 +48,7 @@ public class ProfileSettingStepDefinition_Berti {
                 "Shqip", "Slovenčina", "Slovenščina", "Tiếng Việt", "suomi", "Íslenska", "čeština", "Ελληνικά", "Български", "Македонски", "Српски", "Українська",
                 "עברית", "فارسى", "ქართული", "正體中文（臺灣）", "hr"));
         List<String> actualLanguageOptions = new ArrayList<>();
-        Select language = new Select(profileSettingsPageBerti.LanguageDropDown);
+        Select language = new Select(profileSettingsPageBerti.languageDropDown);
         for (WebElement eachOption : language.getOptions()) {
             actualLanguageOptions.add(eachOption.getText());
         }
@@ -54,22 +57,22 @@ public class ProfileSettingStepDefinition_Berti {
         Assert.assertEquals(actualLanguageOptions, expectedLanguageOptions);
     }
 
-
-    @When("you write {string} input")
-    public void you_write_input(String string) {
+    //      #Full name verification
+    //      #Full name verification
+    @When("you write {string} input on the full name field")
+    public void you_write_input_on_the_full_name_field(String string) {
         BrowserUtils.waitForPageToLoad(10);
-        profileSettingsPageBerti.FullName.clear();
-        profileSettingsPageBerti.FullName.sendKeys(string);
-        profileSettingsPageBerti.PhoneNumber.click();
+        profileSettingsPageBerti.fullName.clear();
+        profileSettingsPageBerti.fullName.sendKeys(string);
+        profileSettingsPageBerti.phoneNumber.click();
         BrowserUtils.waitFor(3);
     }
 
-
-    @Then("you should see the {string} on the phone number")
-    public void you_should_see_the_on_the_phone_number(String expected) {
+    @Then("you should see the {string} on the full name")
+    public void you_should_see_the_on_the_full_name(String expected) {
         profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
         BrowserUtils.waitForPageToLoad(10);
-        String actualFullName = profileSettingsPageBerti.FullName.getText();
+        String actualFullName = profileSettingsPageBerti.fullName.getAttribute("value");
         Assert.assertEquals(actualFullName, expected);
     }
 
@@ -77,4 +80,68 @@ public class ProfileSettingStepDefinition_Berti {
     public void thatYouAreInProfileModuleInformation() {
         profileSettingsPageBerti.goToProfileModule();
     }
+
+    //      #EMAIL VERIFICATION
+    //      #EMAIL VERIFICATION
+
+    @When("going form email to dashboard and again to profile module")
+    public String going_from_email_to_dashboard_and_again_to_profile_module() {
+        profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
+        BrowserUtils.waitForPageToLoad(10);
+        return profileSettingsPageBerti.email.getAttribute("value");
+    }
+
+    @When("you write {string} input on email field")
+    public void you_write_input_on_email_field(String string) {
+        BrowserUtils.waitForPageToLoad(10);
+        profileSettingsPageBerti.email.clear();
+        profileSettingsPageBerti.email.sendKeys(string);
+        profileSettingsPageBerti.phoneNumber.click();
+        BrowserUtils.waitFor(3);
+    }
+
+    @Then("you should see the {string} on the email field")
+    public void you_should_see_the_on_the_email_field(String expected) {
+        Assert.assertEquals(going_from_email_to_dashboard_and_again_to_profile_module(), expected);
+    }
+
+
+    @Then("you should not see the {string} on the email field")
+    public void you_should_not_see_the_on_the_email_field(String expected) {
+        Assert.assertEquals(going_from_email_to_dashboard_and_again_to_profile_module(), expected);
+    }
+
+    //      #Phone number VERIFICATION
+    //      #Phone number VERIFICATION
+
+    @When("going form phone number to dashboard and again to profile module")
+    public String going_from_phone_number_to_dashboard_and_again_to_profile_module() {
+        profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
+        BrowserUtils.waitForPageToLoad(10);
+        return profileSettingsPageBerti.phoneNumber.getAttribute("value");
+
+    }
+
+    @When("you write {string} input on phone number field")
+    public void you_write_input_on_phone_number_field(String string) {
+        BrowserUtils.waitForPageToLoad(10);
+        profileSettingsPageBerti.phoneNumber.clear();
+        profileSettingsPageBerti.phoneNumber.sendKeys(string);
+        profileSettingsPageBerti.email.click();
+        BrowserUtils.waitFor(3);
+    }
+
+    @Then("you should see the {string} on the phone number field")
+    public void you_should_see_the_on_the_phone_number_field(String expected) {
+        Assert.assertEquals(going_from_phone_number_to_dashboard_and_again_to_profile_module(), expected);
+    }
+
+    @Then("you should not see the {string} on the phone number field")
+    public void you_should_not_see_the_on_the_phone_number_field(String expected) {
+        Assert.assertTrue(!Objects.equals(going_from_phone_number_to_dashboard_and_again_to_profile_module(), expected));
+    }
+
 }
+
+
+
