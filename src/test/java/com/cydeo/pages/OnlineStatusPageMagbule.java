@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class OnlineStatusPage {
+public class OnlineStatusPageMagbule {
 
 
 
-    public OnlineStatusPage(){
+    public OnlineStatusPageMagbule(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
