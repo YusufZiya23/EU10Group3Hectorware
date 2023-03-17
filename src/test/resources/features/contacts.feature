@@ -3,7 +3,7 @@ Feature: Contacts function
   User story: As a user, I should be able to create a new contact so that I can communicate with
 
 
-
+  @wip
   Scenario: User can create a new contact by clicking "+ New contact" button
 
     Given login to the "HECTORWARE-QA"
