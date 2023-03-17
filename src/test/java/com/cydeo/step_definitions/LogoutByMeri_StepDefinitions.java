@@ -1,5 +1,6 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.LoginPageByMeri;
 import com.cydeo.pages.LogoutPageByMeri;
 import com.cydeo.utilites.ConfigurationReader;
 import com.cydeo.utilites.Driver;
@@ -12,11 +13,11 @@ import org.openqa.selenium.support.ui.Select;
 public class LogoutByMeri_StepDefinitions {
 
     LogoutPageByMeri logoutPageByMeri = new LogoutPageByMeri();
-
+    LoginPageByMeri loginPageByMeri = new LoginPageByMeri();
 
     @Given("User is on home page")
     public void user_is_on_home_page() {
-       logoutPageByMeri.login(ConfigurationReader.getProperty("username"),ConfigurationReader.getProperty("password"));
+       loginPageByMeri.login(ConfigurationReader.getProperty("username"),ConfigurationReader.getProperty("password"));
     }
     @When("user click on Account dropdown button")
     public void user_click_on_account_dropdown_button() {
