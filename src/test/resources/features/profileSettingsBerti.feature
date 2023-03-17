@@ -1,6 +1,6 @@
 Feature: Profile information
 
-  Background: Login in the hectorware
+  Background: Login in the hectorware and go to profile module
     Given that you are in hectorWare
     And that you are in profile module information
 
