@@ -26,10 +26,5 @@ public class LogoutPageByMeri {
     @FindBy (xpath = "//li[@data-id='logout']")
     public WebElement logoutBtn;
 
-    public void login(String username, String password){
-        Driver.getDriver().get(ConfigurationReader.getProperty("urlLink"));
-        inputUsername.sendKeys(username);
-        inputPassword.sendKeys(password);
-        loginButton.click();
-    }
+
 }

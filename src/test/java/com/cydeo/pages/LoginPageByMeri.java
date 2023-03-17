@@ -1,5 +1,6 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilites.ConfigurationReader;
 import com.cydeo.utilites.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,4 +20,10 @@ public class LoginPageByMeri {
     public WebElement loginButton;
 
 
+    public void login(String username, String password){
+        Driver.getDriver().get(ConfigurationReader.getProperty("urlLink"));
+        inputUsername.sendKeys(username);
+        inputPassword.sendKeys(password);
+        loginButton.click();
+    }
 }
