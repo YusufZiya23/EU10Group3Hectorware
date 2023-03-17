@@ -38,17 +38,28 @@ public class CalendarByMeri_StepDefinitions {
         Assert.assertTrue(calendarPageByMeri.eventTitleField.isDisplayed());
 
     }
-   //Select select = new Select((WebElement) calendarPageByMeri.showSharedField);
+
     @Then("User  fill all the fields")
     public void user_fill_all_the_fields() {
         calendarPageByMeri.eventTitleField.sendKeys(faker.name().title());
         calendarPageByMeri.firstDate.clear();
-        calendarPageByMeri.firstDate.sendKeys("16.03.2023");
+        calendarPageByMeri.firstDate.sendKeys("17.03.2023");
         calendarPageByMeri.secondDate.clear();
         calendarPageByMeri.secondDate.sendKeys("17.03.2023");
         calendarPageByMeri.location.sendKeys(faker.country().name());
         calendarPageByMeri.description.sendKeys(faker.letterify("Some text"));
-        //select.selectByIndex(1);
+        calendarPageByMeri.status.click();
+        calendarPageByMeri.confirmed.click();
+        calendarPageByMeri.showSharedField.click();
+        calendarPageByMeri.onlyBusy.click();
+        calendarPageByMeri.categories.click();
+        calendarPageByMeri.meeting.click();
+        calendarPageByMeri.saveBtn.click();
+
+
+
+
+
 
 
     }
