@@ -24,12 +24,19 @@ Feature: Online status function
     When Click to the Set status link text.
     Then verify user view Online status box.
 
+  @Magbule
 Scenario: User should see 4 options under the "Online status"
 text to change the "Online status" by clicking the options.
 "Online" option need to be at the left top, "Away" option need to be at the right top,
 "Do not disturb" option at the left bottom under the "Online" options,
 "Invisible" option at the right bottom under the "Away" option.
 
-          When User see "Online status" text. And  the options by the right order.
-          And  User click the "Online" option.
-          Then verify user click the "Away" option.
+          When User see Online status text.
+  And User see Online option need to be at the left top
+  And User see Away option need to be at the left top
+  And User see Do not disturb option need to be at the left top
+  And User see Invisible option need to be at the left top
+          Then verify user click the Online option.
+          Then verify user click the Away option.
+          Then verify user click the Do not disturb option.
+          Then verify user click the Invisible option.

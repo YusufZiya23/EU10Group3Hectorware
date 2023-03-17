@@ -24,6 +24,9 @@ public class OnlineStatusPageMagbule {
     @FindBy(xpath = "//div[@class='set-status-modal']")
     public WebElement OnlineStatusBox;
 
+    @FindBy(xpath = "//div[@class='set-status-modal__header']/h3")
+    public WebElement OnlineStatusText;
+
 
 
 
