@@ -58,13 +58,19 @@ talkPageByAnda.ConversationNameBox.click();
     public void verify_is_same_as_the_input(String conversationName) {
         String expectedConversationName= "QA Engineers 1#";
         String actualConversationName=talkPageByAnda.ConversationNameBox.getText();
-
-        Assert.assertEquals(expectedConversationName,actualConversationName);
+//there is a problem here, it can't verify, the test fails
+        Assert.assertEquals(actualConversationName, expectedConversationName);
     }
 
 
+    @And("write an invalid conversation name")
+    public void writeAnInvalidConversationName() {
+        talkPageByAnda.ConversationNameBox.sendKeys("QA the best group in company");
+    }
 
+    @Then("verify that the message-Incorrect conversation length- is appeared in the table")
+    public void verifyThatTheMessageIncorrectConversationLengthIsAppearedInTheTable() {
 
-
-
+        Assert.assertTrue(talkPageByAnda.ConversationNameModal.getText().contains("Incorrect conversation length"));
+    }
 }
