@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.LoginPage;
 import com.cydeo.pages.UploadFilePage;
+import com.cydeo.utilites.BrowserUtils;
 import com.cydeo.utilites.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
@@ -37,11 +38,16 @@ public class UploadFile_StepDefinitions {
 
     @Given("user should select a file to upload by clicking to Upload file button")
     public void userShouldSelectAFileToUploadByClickingToUploadFileButton() {
-        uploadFilePage.uploadFileBtn.sendKeys("C:\\Users\\DT User\\Desktop");
+        uploadFilePage.uploadFileBtn.sendKeys("\"C:\\Users\\DT User\\Desktop\\dummyfileee.txt\"");
     }
 
     @Then("user verifies uploaded file is displayed")
     public void userVerifiesUploadedFileIsDisplayed() {
+        Driver.getDriver().navigate().refresh();
+        BrowserUtils.sleep(2);
         Assert.assertTrue(uploadFilePage.file.isDisplayed());
+        Driver.closeDriver();
     }
+
+
 }
