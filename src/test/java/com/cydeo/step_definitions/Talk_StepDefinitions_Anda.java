@@ -7,7 +7,10 @@ import com.cydeo.utilites.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class Talk_StepDefinitions_Anda {
     LoginPage loginPage = new LoginPage();
@@ -45,13 +48,23 @@ public class Talk_StepDefinitions_Anda {
 talkPageByAnda.ConversationNameBox.click();
     }
 
-    @And("Write a conversation name {string}")
-    public void writeAConversationName(String arg0) {
-    }
-    @Then("Verify {string} is shown in the conversation box")
-    public void verifyIsShownInTheConversationBox(String arg0) {
+    @Given("Write a {string}")
+    public void write_a(String conversationName) throws InterruptedException {
+       talkPageByAnda.ConversationNameBox.sendKeys("QA Engineers 1#");
 
+       Thread.sleep(3000);
     }
+    @Then("verify {string} is same as the input")
+    public void verify_is_same_as_the_input(String conversationName) {
+        String expectedConversationName= "QA Engineers 1#";
+        String actualConversationName=talkPageByAnda.ConversationNameBox.getText();
+
+        Assert.assertEquals(expectedConversationName,actualConversationName);
+    }
+
+
+
+
 
 
 }

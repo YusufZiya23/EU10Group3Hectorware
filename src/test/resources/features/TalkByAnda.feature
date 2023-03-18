@@ -21,5 +21,6 @@ Feature: Talk Functionality
     And click the talk module
     And  Click plus sign in order to create a new conversation
     And Click the conversation name box
-   And Write a conversation name "conversation name"
-  Then Verify "expected conversation name" is shown in the conversation box
+   And Write a "conversation name"
+  Then verify "conversation name" is same as the input
+
