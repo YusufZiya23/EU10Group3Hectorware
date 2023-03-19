@@ -21,6 +21,18 @@ public class NotesEsmeraldi {
     @FindBy(xpath = "//span[@title='New note (3)']")
     public WebElement VerifyNewFile;
 
+    @FindBy(xpath = "//*[@id=\"app-navigation-vue\"]/ul/li[3]/div/div/div/div/button")
+    public WebElement RightClickThreeDots;
+
+    @FindBy(xpath = "//span[.='Rename']")
+    public WebElement RenameTheFile;
+
+    @FindBy(xpath = "//input[@placeholder=\"Note's title\"]")
+    public WebElement NewFileTitle;
+
+    @FindBy(xpath = "//button[@type=\"submit\"]")
+    public WebElement SaveTitle;
+
 
 
 
