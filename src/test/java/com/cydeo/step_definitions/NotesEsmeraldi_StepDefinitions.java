@@ -71,7 +71,6 @@ public class NotesEsmeraldi_StepDefinitions {
     public void user_can_delete_old_file_name() {
 
 
-
     }
 
     @When("user is able to type new file name")
