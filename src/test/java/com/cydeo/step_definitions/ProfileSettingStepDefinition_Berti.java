@@ -29,7 +29,7 @@ public class ProfileSettingStepDefinition_Berti {
     //Language dropdown verification
     @When("you click profile module")
     public void you_click_profile_module() {
-        profileSettingsPageBerti.profileModule.click();
+        profileSettingsPageBerti.goToProfileModule();
     }
 
     @When("when you click setting under profile module")
@@ -139,6 +139,102 @@ public class ProfileSettingStepDefinition_Berti {
     @Then("you should not see the {string} on the phone number field")
     public void you_should_not_see_the_on_the_phone_number_field(String expected) {
         Assert.assertTrue(!Objects.equals(going_from_phone_number_to_dashboard_and_again_to_profile_module(), expected));
+    }
+
+    //      #Address VERIFICATION
+    //      #Address VERIFICATION
+
+    @When("going form ADDRESS to dashboard and again to profile module")
+    public String going_from_ADDRESS_to_dashboard_and_again_to_profile_module() {
+        profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
+        BrowserUtils.waitForPageToLoad(10);
+        return profileSettingsPageBerti.address.getAttribute("value");
+
+    }
+
+    @When("you write {string} input on ADDRESS field")
+    public void you_write_input_on_ADDRESS_field(String string) {
+        BrowserUtils.waitForPageToLoad(10);
+        profileSettingsPageBerti.address.clear();
+        profileSettingsPageBerti.address.sendKeys(string);
+        profileSettingsPageBerti.email.click();
+        BrowserUtils.waitFor(3);
+    }
+
+    @Then("you should see the {string} on the ADDRESS field")
+    public void you_should_see_the_on_the_ADDRESS_field(String expected) {
+        Assert.assertEquals(going_from_ADDRESS_to_dashboard_and_again_to_profile_module(), expected);
+    }
+
+    @Then("you should not see the {string} on the ADDRESS field")
+    public void you_should_not_see_the_on_the_ADDRESS_field(String expected) {
+        Assert.assertTrue(!Objects.equals(going_from_ADDRESS_to_dashboard_and_again_to_profile_module(), expected));
+    }
+
+    //      #Website VERIFICATION
+    //      #Website VERIFICATION
+
+    @When("going form WEBSITE to dashboard and again to profile module")
+    public String going_from_WEBSITE_to_dashboard_and_again_to_profile_module() {
+        profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
+        return profileSettingsPageBerti.website.getAttribute("value");
+
+    }
+
+    @When("you write {string} input on WEBSITE field")
+    public void you_write_input_on_WEBSITE_field(String string) {
+        profileSettingsPageBerti.website.clear();
+        profileSettingsPageBerti.website.sendKeys(string);
+        profileSettingsPageBerti.email.click();
+    }
+
+    @Then("you should see the {string} on the WEBSITE field")
+    public void you_should_see_the_on_the_WEBSITE_field(String expected) {
+        Assert.assertEquals(going_from_WEBSITE_to_dashboard_and_again_to_profile_module(), expected);
+    }
+
+    @Then("you should not see the {string} on the WEBSITE field")
+    public void you_should_not_see_the_on_the_WEBSITE_field(String expected) {
+        Assert.assertTrue(!Objects.equals(going_from_WEBSITE_to_dashboard_and_again_to_profile_module(), expected));
+    }
+
+
+    //All fields VERIFICATIONS
+    //All fields VERIFICATIONS
+
+    @Given("a list of web elements from profile module")
+    public List<WebElement> a_list_of_web_elements_from_profile_module() {
+        List<WebElement> listOfWebElements = new ArrayList<>();
+        listOfWebElements.add(profileSettingsPageBerti.fullName);
+        listOfWebElements.add(profileSettingsPageBerti.email);
+        listOfWebElements.add(profileSettingsPageBerti.phoneNumber);
+        listOfWebElements.add(profileSettingsPageBerti.address);
+        listOfWebElements.add(profileSettingsPageBerti.website);
+        listOfWebElements.add(profileSettingsPageBerti.twitter);
+        return listOfWebElements;
+    }
+
+    @When("you write {string}, {string}, {string}, {string}, {string}, {string} input on ALL fields")
+    public void you_write_input_on_all_fields(String Full_name, String Email, String Phone_number, String Address, String Website, String Twitter) {
+        List<String> listString = new ArrayList<>();
+        listString.add(Full_name);
+        listString.add(Email);
+        listString.add(Phone_number);
+        listString.add(Address);
+        listString.add(Website);
+        listString.add(Twitter);
+        for (int i = 0; i < a_list_of_web_elements_from_profile_module().size(); i++) {
+
+            a_list_of_web_elements_from_profile_module().get(i).clear();
+            a_list_of_web_elements_from_profile_module().get(i).sendKeys(listString.get(i));
+            profileSettingsPageBerti.kot.click();
+            profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
+            String expected = a_list_of_web_elements_from_profile_module().get(i).getAttribute("value");
+            String actual = listString.get(i);
+            Assert.assertEquals(expected, actual);
+
+        }
+
     }
 
 }

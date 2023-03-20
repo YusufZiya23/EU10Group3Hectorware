@@ -32,10 +32,10 @@ text to change the "Online status" by clicking the options.
 "Invisible" option at the right bottom under the "Away" option.
 
           When User see Online status text.
-  And User see Online option need to be at the left top
-  And User see Away option need to be at the left top
-  And User see Do not disturb option need to be at the left top
-  And User see Invisible option need to be at the left top
+          And User see Online option need to be at the left top
+          And User see Away option need to be at the left top
+          And User see Do not disturb option need to be at the left top
+          And User see Invisible option need to be at the left top
           Then verify user click the Online option.
           Then verify user click the Away option.
           Then verify user click the Do not disturb option.

@@ -12,7 +12,7 @@ public class ContactsPage {
     }
 
 
-    @FindBy(xpath = "//a[@class='active']")
+    @FindBy(xpath = "//ul[@id='appmenu']//li[@data-id='contacts']")
     public WebElement contactsButton;
 
     @FindBy(id = "new-contact-button")
@@ -24,4 +24,12 @@ public class ContactsPage {
     @FindBy(id = "contact-org")
     public WebElement company;
 
+    @FindBy(id = "contact-title")
+    public WebElement title;
+
+    @FindBy(xpath = "//header[@class='contact-header']")
+    public WebElement emptyArea;
+
+    @FindBy(xpath = "//div[@id='MTU2NTE0NmUtNjg5OC00ZjU1LThiNDgtYWM4NGM2N2JhODRmfm5ldy1jb250YW']")
+    public WebElement contact;
 }

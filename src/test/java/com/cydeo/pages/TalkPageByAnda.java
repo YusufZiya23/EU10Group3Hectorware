@@ -22,6 +22,8 @@ public class TalkPageByAnda {
     public WebElement ConversationNameBox;
 
 
+@FindBy (xpath = "//div[@class='new-group-conversation talk-modal']")
+    public WebElement ConversationNameModal;
 
 
 

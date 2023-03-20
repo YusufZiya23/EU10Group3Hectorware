@@ -2,7 +2,7 @@ Feature: Profile information
 
   Background: Login in the hectorware
     Given that you are in hectorWare
-    And that you are in profile module information
+    And you click profile module
 
   #Full name verification
   #Full name verification
@@ -12,12 +12,14 @@ Feature: Profile information
     When you write "<valid>" input on the full name field
     Then you should see the "<expected>" on the full name
     Examples:
-      | valid        | expected     |
-      | Albert Shima | Albert Shima |
-      | berti        | berti        |
+      | valid                  | expected               |
+      | berti                  | berti                  |
+      | Albert Shima           | Albert Shima           |
+      | berti amel shima       | berti amel shima       |
+      | berti amel shima nasle | berti amel shima nasle |
 
   #EMAIL VERIFICATION
-  #EMAIL VERIFICATION
+  #EMAIL VERIFICATION^^
   @email @berti
   Scenario Outline: Verify the EMAIL field with VALID input
 
@@ -30,6 +32,7 @@ Feature: Profile information
       | input              | expected           |
       | albertsh@gmail.com | albertsh@gmail.com |
       | shalbert@gmail.com | shalbert@gmail.com |
+      | employee@gmail.com | employee@gmail.com |
 
   @email @berti
   Scenario Outline: Verify the EMAIL field with INVALID input
@@ -45,6 +48,8 @@ Feature: Profile information
       | albertsh@gmail    |
       | albertshgmail.com |
       | 123456789         |
+      | @hotmal           |
+      | @gmail            |
       |                   |
 
   #Phone number VERIFICATION
@@ -70,11 +75,112 @@ Feature: Profile information
 
     @invalidphonenumber
     Examples: Invalid input
-      | invalid    |
-      | sakdjh3424 |
-      | letters    |
-      | lette123rs |
-      |            |
+      | invalid      |
+      | sakdjh3424   |
+      | letters      |
+      | lette  123rs |
+      |              |
+
+  #Address VERIFICATION
+  #Address VERIFICATION
+  @address @berti
+  Scenario Outline: Verify the ADDRESS field with VALID input
+
+    When you write "<input>" input on ADDRESS field
+    And going form ADDRESS to dashboard and again to profile module
+    Then you should see the "<expected>" on the ADDRESS field
+
+    @validaddress
+    Examples: Valid input
+      | input                     | expected                  |
+      | Rr Niko Avrami 12/3       | Rr Niko Avrami 12/3       |
+      | Ish sheshi Shqiponja 12/3 | Ish sheshi Shqiponja 12/3 |
+
+  @address @berti
+  Scenario Outline: Verify the ADDRESS field with INVALID input
+    When you write "<invalid>" input on ADDRESS field
+    And going form ADDRESS to dashboard and again to profile module
+    Then you should not see the "<invalid>" on the ADDRESS field
+
+    @invalidaddress
+    Examples: Invalid input
+      | invalid   |
+      | 21376 231 |
+      | 123456789 |
+      | !"$%&/()  |
+      |           |
+
+  #Website VERIFICATION
+  #Website VERIFICATION
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with VALID input
+
+    When you write "<input>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should see the "<expected>" on the WEBSITE field
+
+    @validwebsite
+    Examples: Valid input
+      | input                  | expected               |
+      | https://www.google.com | https://www.google.com |
+      | www.youtube.com        | www.youtube.com        |
+
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with INVALID input
+    When you write "<invalid>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should not see the "<invalid>" on the WEBSITE field
+
+    @invalidwebsite
+    Examples: Invalid input
+      | invalid           |
+      | https://www.gogle |
+      | www.youtbe.com    |
+      | !"$%&/()          |
+      |                   |
+
+  #Twiter VERIFICATION
+  #Twiter VERIFICATION
+  @address @berti
+  Scenario Outline: Verify the TWITTER field with VALID input
+
+    When you write "<input>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should see the "<expected>" on the WEBSITE field
+
+    @validwebsite
+    Examples: Valid input
+      | input                  | expected               |
+      | https://www.google.com | https://www.google.com |
+      | www.youtube.com        | www.youtube.com        |
+
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with INVALID input
+    When you write "<invalid>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should not see the "<invalid>" on the WEBSITE field
+
+    @invalidwebsite
+    Examples: Invalid input
+      | invalid           |
+      | https://www.gogle |
+      | www.youtbe.com    |
+      | !"$%&/()          |
+      |                   |
+
+  #All VERIFICATIONs
+  #All VERIFICATIONS
+  @address @berti
+  Scenario Outline: Verify the All fields with VALID input
+    Given a list of web elements from profile module
+    When you write "<Full_name>", "<Email>", "<Phone_number>", "<Address>", "<Website>", "<Twitter>" input on ALL fields
+
+
+    @validaddress
+    Examples: Valid input
+      | Full_name    | Email              | Phone_number | Address                   | Website                 | Twitter    |
+      | Albert Shima | albertsh@gmail.com | 2187361287   | Ish sheshi Shqiponja 12/3 | https://www.google.com  | ashima     |
+      | Berti        | shalbert@gmail.com | 0692736172   | Rr Niko Avrami 12/3       | https://www.youtube.com | shalbert08 |
 
   #Language dropdown verification
   #Language dropdown verification

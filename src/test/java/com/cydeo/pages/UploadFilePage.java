@@ -23,7 +23,7 @@ public class UploadFilePage {
     @FindBy(xpath = "//a[@data-templatename='New text document.md']")
     public WebElement newTextDocBtn;
 
-    @FindBy(xpath = "//span[@class='nametext']/span[.='dummyfileee']")
+    @FindBy(xpath = "//span[.='dummyfileee']")
     public WebElement file;
 
 
