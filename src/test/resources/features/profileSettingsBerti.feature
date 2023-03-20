@@ -110,6 +110,64 @@ Feature: Profile information
       | !"$%&/()  |
       |           |
 
+  #Website VERIFICATION
+  #Website VERIFICATION
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with VALID input
+
+    When you write "<input>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should see the "<expected>" on the WEBSITE field
+
+    @validwebsite
+    Examples: Valid input
+      | input                  | expected               |
+      | https://www.google.com | https://www.google.com |
+      | www.youtube.com        | www.youtube.com        |
+
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with INVALID input
+    When you write "<invalid>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should not see the "<invalid>" on the WEBSITE field
+
+    @invalidwebsite
+    Examples: Invalid input
+      | invalid           |
+      | https://www.gogle |
+      | www.youtbe.com    |
+      | !"$%&/()          |
+      |                   |
+
+  #Twiter VERIFICATION
+  #Twiter VERIFICATION
+  @address @berti
+  Scenario Outline: Verify the TWITTER field with VALID input
+
+    When you write "<input>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should see the "<expected>" on the WEBSITE field
+
+    @validwebsite
+    Examples: Valid input
+      | input                  | expected               |
+      | https://www.google.com | https://www.google.com |
+      | www.youtube.com        | www.youtube.com        |
+
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with INVALID input
+    When you write "<invalid>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should not see the "<invalid>" on the WEBSITE field
+
+    @invalidwebsite
+    Examples: Invalid input
+      | invalid           |
+      | https://www.gogle |
+      | www.youtbe.com    |
+      | !"$%&/()          |
+      |                   |
+
   #All VERIFICATIONs
   #All VERIFICATIONS
   @address @berti

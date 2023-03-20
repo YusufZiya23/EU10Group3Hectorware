@@ -1,16 +1,12 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.LoginPage;
-import com.cydeo.pages.OnlineStatusPageMagbule;
 import com.cydeo.pages.ProfileSettingsPageBerti;
 import com.cydeo.utilites.BrowserUtils;
-import com.cydeo.utilites.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -174,6 +170,36 @@ public class ProfileSettingStepDefinition_Berti {
     public void you_should_not_see_the_on_the_ADDRESS_field(String expected) {
         Assert.assertTrue(!Objects.equals(going_from_ADDRESS_to_dashboard_and_again_to_profile_module(), expected));
     }
+
+    //      #Website VERIFICATION
+    //      #Website VERIFICATION
+
+    @When("going form WEBSITE to dashboard and again to profile module")
+    public String going_from_WEBSITE_to_dashboard_and_again_to_profile_module() {
+        profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
+        return profileSettingsPageBerti.website.getAttribute("value");
+
+    }
+
+    @When("you write {string} input on WEBSITE field")
+    public void you_write_input_on_WEBSITE_field(String string) {
+        profileSettingsPageBerti.website.clear();
+        profileSettingsPageBerti.website.sendKeys(string);
+        profileSettingsPageBerti.email.click();
+    }
+
+    @Then("you should see the {string} on the WEBSITE field")
+    public void you_should_see_the_on_the_WEBSITE_field(String expected) {
+        Assert.assertEquals(going_from_WEBSITE_to_dashboard_and_again_to_profile_module(), expected);
+    }
+
+    @Then("you should not see the {string} on the WEBSITE field")
+    public void you_should_not_see_the_on_the_WEBSITE_field(String expected) {
+        Assert.assertTrue(!Objects.equals(going_from_WEBSITE_to_dashboard_and_again_to_profile_module(), expected));
+    }
+
+
+    //All fields VERIFICATIONS
     //All fields VERIFICATIONS
 
     @Given("a list of web elements from profile module")
@@ -190,22 +216,22 @@ public class ProfileSettingStepDefinition_Berti {
 
     @When("you write {string}, {string}, {string}, {string}, {string}, {string} input on ALL fields")
     public void you_write_input_on_all_fields(String Full_name, String Email, String Phone_number, String Address, String Website, String Twitter) {
-    List<String > listString = new ArrayList<>();
-    listString.add(Full_name);
-    listString.add(Email);
-    listString.add(Phone_number);
-    listString.add(Address);
-    listString.add(Website);
-    listString.add(Twitter);
+        List<String> listString = new ArrayList<>();
+        listString.add(Full_name);
+        listString.add(Email);
+        listString.add(Phone_number);
+        listString.add(Address);
+        listString.add(Website);
+        listString.add(Twitter);
         for (int i = 0; i < a_list_of_web_elements_from_profile_module().size(); i++) {
 
-                a_list_of_web_elements_from_profile_module().get(i).clear();
-                a_list_of_web_elements_from_profile_module().get(i).sendKeys(listString.get(i));
-                profileSettingsPageBerti.kot.click();
-                profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
-                String expected = a_list_of_web_elements_from_profile_module().get(i).getAttribute("value");
-                String actual = listString.get(i);
-                Assert.assertEquals(expected, actual);
+            a_list_of_web_elements_from_profile_module().get(i).clear();
+            a_list_of_web_elements_from_profile_module().get(i).sendKeys(listString.get(i));
+            profileSettingsPageBerti.kot.click();
+            profileSettingsPageBerti.getBackAndForwardIntoProfileModule();
+            String expected = a_list_of_web_elements_from_profile_module().get(i).getAttribute("value");
+            String actual = listString.get(i);
+            Assert.assertEquals(expected, actual);
 
         }
 
