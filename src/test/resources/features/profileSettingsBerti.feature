@@ -19,7 +19,7 @@ Feature: Profile information
       | berti amel shima nasle | berti amel shima nasle |
 
   #EMAIL VERIFICATION
-  #EMAIL VERIFICATION
+  #EMAIL VERIFICATION^^
   @email @berti
   Scenario Outline: Verify the EMAIL field with VALID input
 
