@@ -28,7 +28,7 @@ public class ProfileSettingsPageBerti {
     public WebElement phoneNumber;
 
     @FindBy(xpath = "//*[@id='address']")
-    public WebElement Address;
+    public WebElement address;
 
     @FindBy(xpath = "//*[@id='website']")
     public WebElement website;
@@ -44,6 +44,9 @@ public class ProfileSettingsPageBerti {
 
     @FindBy(xpath = "//*[@id='nextcloud']/div")
     public WebElement dashboard;
+
+    @FindBy(xpath = "//*[@id=\"displayavatar\"]/p/em")
+    public WebElement kot;
 
     public void goToProfileModule(){
         profileModule.click();
