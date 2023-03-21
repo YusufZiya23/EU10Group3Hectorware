@@ -1,14 +1,10 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.CalendarPageByMeri;
-import com.cydeo.utilites.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class CalendarByMeri_StepDefinitions {
 
@@ -43,9 +39,12 @@ public class CalendarByMeri_StepDefinitions {
     public void user_fill_all_the_fields() {
         calendarPageByMeri.eventTitleField.sendKeys(faker.name().title());
         calendarPageByMeri.firstDate.clear();
-        calendarPageByMeri.firstDate.sendKeys("17.03.2023");
+        String day = "17";
+        String month = "03";
+        String year = "2023";
+        calendarPageByMeri.firstDate.sendKeys(day+"."+month+"."+year);
         calendarPageByMeri.secondDate.clear();
-        calendarPageByMeri.secondDate.sendKeys("17.03.2023");
+        calendarPageByMeri.secondDate.sendKeys(day+"."+month+"."+year);
         calendarPageByMeri.location.sendKeys(faker.country().name());
         calendarPageByMeri.description.sendKeys(faker.letterify("Some text"));
         calendarPageByMeri.status.click();
@@ -63,8 +62,25 @@ public class CalendarByMeri_StepDefinitions {
 
 
     }
-    @Then("User should see in calendar event")
-    public void user_should_see_in_calendar_event() {
+    @Then("User should see calendar event")
+    public void user_should_see_calendar_event() {
+
+    }
+
+    @Then("User should see view button")
+    public void user_should_see_view_button() {
+
+        Assert.assertTrue(calendarPageByMeri.viewBtn.isDisplayed());
+
+    }
+    @Then("User should be able to change by day,week,month")
+    public void user_should_be_able_to_change_by_day_week_month() {
+
+        calendarPageByMeri.viewBtn.click();
+        calendarPageByMeri.day.click();
+        calendarPageByMeri.week.click();
+        calendarPageByMeri.month.click();
+
 
     }
 }
