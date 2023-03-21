@@ -39,4 +39,4 @@ text to change the "Online status" by clicking the options.
           Then verify user click the Online option.
           Then verify user click the Away option.
           Then verify user click the Do not disturb option.
-          Then verify user click the Invisible option.
+          Then verify user click the Invisible option   .
