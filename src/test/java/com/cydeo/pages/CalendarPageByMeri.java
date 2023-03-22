@@ -54,6 +54,17 @@ public class CalendarPageByMeri {
     @FindBy (xpath = "//*[@id=\"tab-app-sidebar-tab-details\"]/div[2]/button")
     public WebElement saveBtn;
 
+    @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-view-day']")
+    public WebElement viewBtn;
+
+    @FindBy (xpath = "//span[@class='action-button__icon icon-view-day']")
+    public WebElement day;
+
+    @FindBy (xpath = "//span[@class='action-button__icon icon-view-week']")
+    public WebElement week;
+
+    @FindBy (xpath = "//span[@class='action-button__icon icon-view-month']")
+    public WebElement month;
 
 
 
