@@ -1,7 +1,9 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.LoginPage;
+import com.cydeo.pages.LoginPageByMeri;
 import com.cydeo.pages.OnlineStatusPageMagbule;
+import com.cydeo.utilites.BrowserUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,13 +11,14 @@ import org.junit.Assert;
 
 public class OnlineStatus_StepDefinition_Magbule {
 
-    LoginPage loginPage = new LoginPage();
+   LoginPageByMeri loginPageByMeri=new LoginPageByMeri();
 
     OnlineStatusPageMagbule onlineStatusPageMagbule=new OnlineStatusPageMagbule();
 
     @Given("user navigates to the URL {string}")
     public void user_navigates_to_the_url(String string) {
-       loginPage.logIn();
+
+        loginPageByMeri.login("Employee101","Employee123");
     }
     @When("user click to the avatar")
     public void user_click_to_the_avatar() {
@@ -66,34 +69,66 @@ public class OnlineStatus_StepDefinition_Magbule {
     }
     @When("User see Online option need to be at the left top")
     public void user_see_online_option_need_to_be_at_the_left_top() {
+        String expectedOnlineOption = "Online";
+        String actualOnlineOption = onlineStatusPageMagbule.OnlineOption.getText();
 
+
+        Assert.assertTrue(actualOnlineOption.equals(expectedOnlineOption));
+        onlineStatusPageMagbule.OnlineOption.isDisplayed();
     }
     @When("User see Away option need to be at the left top")
     public void user_see_away_option_need_to_be_at_the_left_top() {
+        String expectedOnlineOption = "Away";
+        String actualOnlineOption = onlineStatusPageMagbule.AwayOption.getText();
 
+
+        Assert.assertTrue(actualOnlineOption.equals(expectedOnlineOption));
+        onlineStatusPageMagbule.AwayOption.isDisplayed();
     }
     @When("User see Do not disturb option need to be at the left top")
     public void user_see_do_not_disturb_option_need_to_be_at_the_left_top() {
+        String expectedOnlineOption = "Do not disturb";
+        String actualOnlineOption = onlineStatusPageMagbule.DoNotDisturbOption.getText();
+
+
+        Assert.assertTrue(actualOnlineOption.equals(expectedOnlineOption));
+        onlineStatusPageMagbule.DoNotDisturbOption.isDisplayed();
 
     }
+
     @When("User see Invisible option need to be at the left top")
     public void user_see_invisible_option_need_to_be_at_the_left_top() {
+
+        String expectedOnlineOption = "Invisible";
+        String actualOnlineOption = onlineStatusPageMagbule.Invisible.getText();
+
+
+        Assert.assertTrue(actualOnlineOption.equals(expectedOnlineOption));
+        onlineStatusPageMagbule.Invisible.isDisplayed();
 
     }
     @Then("verify user click the Online option.")
     public void verify_user_click_the_online_option() {
+        onlineStatusPageMagbule.OnlineOption.click();
+        BrowserUtils.waitFor(3);
 
     }
     @Then("verify user click the Away option.")
     public void verify_user_click_the_away_option() {
-
+       onlineStatusPageMagbule.AwayOption.click();
+        BrowserUtils.waitFor(3);
     }
     @Then("verify user click the Do not disturb option.")
     public void verify_user_click_the_do_not_disturb_option() {
+        onlineStatusPageMagbule.DoNotDisturbOption.click();
+        BrowserUtils.waitFor(3);
 
     }
+
     @Then("verify user click the Invisible option.")
     public void verify_user_click_the_invisible_option() {
+        onlineStatusPageMagbule.Invisible.click();
+        BrowserUtils.waitFor(3);
 
     }
 
