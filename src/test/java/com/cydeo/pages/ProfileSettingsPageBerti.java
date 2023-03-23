@@ -36,7 +36,7 @@ public class ProfileSettingsPageBerti {
     @FindBy(xpath = "//*[@id='twitter']")
     public WebElement twitter;
 
-    @FindBy(xpath = " ")
+    @FindBy(xpath = "//*[@id='languageinput']")
     public WebElement languageDropDown;
 
     @FindBy(xpath = "//*[@id='localeinput']")
