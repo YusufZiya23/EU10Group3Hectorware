@@ -1,3 +1,4 @@
+
 package com.cydeo.pages;
 
 import com.cydeo.utilites.Driver;
@@ -10,7 +11,7 @@ public class SettingsPageAli {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-@FindBy(id= "user")
+    @FindBy(id= "user")
     public WebElement username;
 
 
@@ -32,7 +33,12 @@ public class SettingsPageAli {
 
     @FindBy(xpath = "//img[@src='/apps/settings/img/help.svg?v=01656a04']")
     public WebElement HelpButton;
+
+    @FindBy(id = "displayname")
+    public WebElement fullName;
+
+
+
+
 }
-
-
 
