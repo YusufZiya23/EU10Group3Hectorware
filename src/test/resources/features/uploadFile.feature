@@ -16,7 +16,7 @@ Feature: Upload file feature
   Scenario: User should click to upload file button and select a text, img or pdf file with a maximum capacity of 10 mb
     Then user should select a file to upload by clicking to Upload file button
 
-  @yzg
+
   Scenario: User can verify file is uploaded by confirming it’s displayed in the ‘’All files’’ page.
     Given user should select a file to upload by clicking to Upload file button
     Then user verifies uploaded file is displayed
