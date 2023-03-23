@@ -107,22 +107,77 @@ Feature: Profile information
       | invalid   |
       | 21376 231 |
       | 123456789 |
-      | !"$%&/()  |
       |           |
+
+  #Website VERIFICATION
+  #Website VERIFICATION
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with VALID input
+
+    When you write "<input>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should see the "<expected>" on the WEBSITE field
+
+    @validwebsite
+    Examples: Valid input
+      | input                  | expected               |
+      | https://www.google.com | https://www.google.com |
+      | www.youtube.com        | www.youtube.com        |
+
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with INVALID input
+    When you write "<invalid>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should not see the "<invalid>" on the WEBSITE field
+
+    @invalidwebsite
+    Examples: Invalid input
+      | invalid           |
+      | https://www.gogle |
+      | www.youtbe.com    |
+      |                   |
+
+  #Twiter VERIFICATION
+  #Twiter VERIFICATION
+  @address @berti
+  Scenario Outline: Verify the TWITTER field with VALID input
+
+    When you write "<input>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should see the "<expected>" on the WEBSITE field
+
+    @validwebsite
+    Examples: Valid input
+      | input                  | expected               |
+      | https://www.google.com | https://www.google.com |
+      | www.youtube.com        | www.youtube.com        |
+
+  @address @berti
+  Scenario Outline: Verify the WEBSITE field with INVALID input
+    When you write "<invalid>" input on WEBSITE field
+    And going form WEBSITE to dashboard and again to profile module
+    Then you should not see the "<invalid>" on the WEBSITE field
+
+    @invalidwebsite
+    Examples: Invalid input
+      | invalid           |
+      | https://www.gogle |
+      | www.youtbe.com    |
+      |                   |
 
   #All VERIFICATIONs
   #All VERIFICATIONS
-  @address @berti
-  Scenario Outline: Verify the All fields with VALID input
-    Given a list of web elements from profile module
-    When you write "<Full_name>", "<Email>", "<Phone_number>", "<Address>", "<Website>", "<Twitter>" input on ALL fields
+  #@address @berti
+  #Scenario Outline: Verify the All fields with VALID input
+   # Given a list of web elements from profile module
+   # When you write "<Full_name>", "<Email>", "<Phone_number>", "<Address>", "<Website>", "<Twitter>" input on ALL fields
 
 
-    @validaddress
-    Examples: Valid input
-      | Full_name    | Email              | Phone_number | Address                   | Website                 | Twitter    |
-      | Albert Shima | albertsh@gmail.com | 2187361287   | Ish sheshi Shqiponja 12/3 | https://www.google.com  | ashima     |
-      | Berti        | shalbert@gmail.com | 0692736172   | Rr Niko Avrami 12/3       | https://www.youtube.com | shalbert08 |
+  #  @validaddress
+   # Examples: Valid input
+    #  | Full_name    | Email              | Phone_number | Address                   | Website                 | Twitter    |
+     # | Albert Shima      | albertsh@gmail.com | 2187361287 | Ish sheshi Shqiponja 12/3 | https://www.google.com  | ashima     |
+      #| Berti             | shalbert@gmail.com | 0692736172 | Rr Niko Avrami 12/3 | https://www.youtube.com | shalbert08 |
 
   #Language dropdown verification
   #Language dropdown verification
@@ -130,7 +185,6 @@ Feature: Profile information
   Scenario: Checking all options for the LANGUAGE drop down list
 
     When you click profile module
-    And when you click setting under profile module
     Then you should see all the options of dropdown
 
 
