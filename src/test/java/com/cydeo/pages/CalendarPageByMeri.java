@@ -18,10 +18,10 @@ public class CalendarPageByMeri {
     @FindBy (xpath = "//input[@class='app-sidebar-header__maintitle-input']")
     public WebElement eventTitleField;
 
-    @FindBy(xpath = "//*[@id=\"app-sidebar-vue\"]/header/div[2]/div/div[1]/div[1]/div/input")
+    @FindBy(xpath = "(//div[@class='mx-input-wrapper']//input[@name='date'])[2]")
     public WebElement firstDate;
 
-    @FindBy(xpath = "//*[@id=\"app-sidebar-vue\"]/header/div[2]/div/div[1]/div[2]/div/input")
+    @FindBy(xpath = "(//div[@class='mx-input-wrapper']//input[@name='date'])[3]")
     public WebElement secondDate;
 
     @FindBy(xpath = "//*[@id=\"tab-app-sidebar-tab-details\"]/div[1]/div[1]/div[2]/textarea")
@@ -30,7 +30,7 @@ public class CalendarPageByMeri {
     @FindBy(xpath = "//textarea[@placeholder='Add a description']")
     public WebElement description;
 
-    @FindBy(xpath = "//span[.='Confirmed']")
+    @FindBy(xpath = "(//span[.='Confirmed'])[1]")
     public WebElement status;
 
     @FindBy(xpath = "//span[.='Confirmed']")
@@ -65,6 +65,12 @@ public class CalendarPageByMeri {
 
     @FindBy (xpath = "//span[@class='action-button__icon icon-view-month']")
     public WebElement month;
+
+
+    @FindBy (xpath = "//span[@class='action-button__icon icon-view-list']")
+    public WebElement list;
+
+
 
 
 
