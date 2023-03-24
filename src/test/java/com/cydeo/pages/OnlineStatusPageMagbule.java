@@ -1,5 +1,6 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilites.BrowserUtils;
 import com.cydeo.utilites.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,9 +28,20 @@ public class OnlineStatusPageMagbule {
     @FindBy(xpath = "//h3[.='Online status']")
     public WebElement OnlineStatusText;
 
+   @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-online']")
+    public WebElement OnlineOption;
 
+   @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-away']")
+    public WebElement AwayOption;
 
+   @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-dnd']")
+    public WebElement DoNotDisturbOption;
 
+   @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-invisible']")
+    public WebElement Invisible;
+
+   @FindBy(xpath="//div[@class='modal-wrapper modal-wrapper--normal']")
+    public WebElement AnySpaceOnPage   ;
 
 
 
