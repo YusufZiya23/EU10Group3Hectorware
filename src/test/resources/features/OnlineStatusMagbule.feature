@@ -40,6 +40,15 @@ text to change the "Online status" by clicking the options.
           Then verify user click the Away option.
           Then verify user click the Do not disturb option.
           Then verify user click the Invisible option.
+   @Magbule
 
     Scenario: User should click anywhere on the webpage to close the Online status box
+
       Then verify user click any space on the page to close the Online status box
+
+      Scenario: User should see one of the chosen option under profile drop down menu
+
+        Then verify user see Online text under drop down menu
+        Then verify user see Away text under drop down menu
+        Then verify user see Do not disturb text under drop down menu
+        Then verify user see Invisible under drop down menu
