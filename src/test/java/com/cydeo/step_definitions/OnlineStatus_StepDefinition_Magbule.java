@@ -19,6 +19,7 @@ public class OnlineStatus_StepDefinition_Magbule {
     public void user_navigates_to_the_url(String string) {
 
         loginPageByMeri.login("Employee101","Employee123");
+
     }
     @When("user click to the avatar")
     public void user_click_to_the_avatar() {
@@ -26,10 +27,6 @@ public class OnlineStatus_StepDefinition_Magbule {
         onlineStatusPageMagbule.avatarButton.click();
 
     }
-
-
-
-
 
 
 
@@ -133,9 +130,9 @@ public class OnlineStatus_StepDefinition_Magbule {
     }
 
 
+    @Then("verify user click any space on the page to close the Online status box")
+    public void verifyUserClickAnySpaceOnThePageToCloseTheOnlineStatusBox() {
+        onlineStatusPageMagbule.AnySpaceOnPage.click();
 
-
-
-
-
+    }
 }
