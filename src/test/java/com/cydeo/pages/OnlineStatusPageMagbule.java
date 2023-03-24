@@ -16,16 +16,16 @@ public class OnlineStatusPageMagbule {
 
 
 
-    @FindBy(xpath = "//*[@id=\"expand\"]")
+    @FindBy(xpath = "//div[@class='avatardiv avatardiv-shown']")
     public WebElement avatarButton;
 
-    @FindBy(xpath = "//*[@id=\"expanddiv\"]/ul/li[1]/div/a")
+    @FindBy(xpath = "//div[@class='user-status-menu-item']/a")
    public WebElement SetStatusLinkDropDown;
 
     @FindBy(xpath = "//div[@class='set-status-modal']")
     public WebElement OnlineStatusBox;
 
-    @FindBy(xpath = "/html/body/div[8]/div[2]/div/div/div[1]/h3")
+    @FindBy(xpath = "//h3[.='Online status']")
     public WebElement OnlineStatusText;
 
    @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-online']")
@@ -34,16 +34,14 @@ public class OnlineStatusPageMagbule {
    @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-away']")
     public WebElement AwayOption;
 
-   @FindBy(xpath = "(//em[@class='user-status-online-select__subline'])[3]/..")
+   @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-dnd']")
     public WebElement DoNotDisturbOption;
 
-   @FindBy(xpath = "(//em[@class='user-status-online-select__subline'])[4]/..")
+   @FindBy(xpath = "//label[@class='user-status-online-select__label icon-user-status-invisible']")
     public WebElement Invisible;
 
    @FindBy(xpath="//div[@class='modal-wrapper modal-wrapper--normal']")
-    public WebElement AnySpaceOnPage;
-
-
+    public WebElement AnySpaceOnPage   ;
 
 
 
