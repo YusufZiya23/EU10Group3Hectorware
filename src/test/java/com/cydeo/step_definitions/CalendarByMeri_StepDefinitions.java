@@ -10,6 +10,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class CalendarByMeri_StepDefinitions {
 
     CalendarPageByMeri calendarPageByMeri = new CalendarPageByMeri();
@@ -51,16 +53,14 @@ public class CalendarByMeri_StepDefinitions {
         calendarPageByMeri.firstDate.click();
         calendarPageByMeri.firstDate.clear();
         //BrowserUtils.sleep(4);
-        calendarPageByMeri.firstDate.sendKeys("from"+date+"at"+time1);
-
-
+        calendarPageByMeri.firstDate.sendKeys("from "+date+" at "+time1);
 
         calendarPageByMeri.secondDate.click();
         calendarPageByMeri.secondDate.clear();
-        BrowserUtils.sleep(4);
+        BrowserUtils.sleep(2);
 
-        calendarPageByMeri.secondDate.sendKeys("to"+date+"at"+time2);
-        BrowserUtils.sleep(4);
+        calendarPageByMeri.secondDate.sendKeys("to "+date+" at "+time2);
+        BrowserUtils.sleep(2);
 
     }
     @Then("User fill other fields and click save button")
@@ -69,14 +69,18 @@ public class CalendarByMeri_StepDefinitions {
 
         calendarPageByMeri.location.sendKeys(faker.country().name());
         calendarPageByMeri.description.sendKeys(faker.letterify("Some text"));
-        BrowserUtils.sleep(4);
-        //calendarPageByMeri.status.click();
+
+        BrowserUtils.sleep(2);
+        calendarPageByMeri.status.click();
         calendarPageByMeri.confirmed.click();
         calendarPageByMeri.showSharedField.click();
         calendarPageByMeri.onlyBusy.click();
+        calendarPageByMeri.inputCategories.click();
         calendarPageByMeri.categories.click();
-        calendarPageByMeri.meeting.click();
+
+        BrowserUtils.sleep(2);
         calendarPageByMeri.saveBtn.click();
+        BrowserUtils.sleep(2);
     }
 
     @Then("User should see  event date {string} and time {string} on the calendar")
@@ -85,9 +89,11 @@ public class CalendarByMeri_StepDefinitions {
 
 
         WebElement actualTime = Driver.getDriver().findElement
-                (By.xpath("//td[@data-date='" + date + "']//div[@class='fc-event-main-frame']//div[.='" + expectedTime + "']"));
+                (By.xpath("//td[@data-date='"+ date +"']//div[@class='fc-event-main-frame']//div[.='" + expectedTime + "']"));
         Assert.assertTrue(actualTime.isDisplayed());
         Assert.assertEquals(actualTime.getText(),expectedTime);
+
+        //td[@data-date='2023-03-26']//div[@class='fc-event-main-frame']//div[.='01:00 - 02:00']
 
 
     }
@@ -107,6 +113,18 @@ public class CalendarByMeri_StepDefinitions {
         calendarPageByMeri.week.click();
         calendarPageByMeri.month.click();
 
+    }
+
+    @Then("User click on list option")
+    public void user_click_on_list_option() {
+
+        calendarPageByMeri.list.click();
+
+    }
+    @Then("User should see {string} of the week in english")
+    public void user_should_see_of_the_week_in_english(List<String > expectedDays) {
+
+        System.out.println(expectedDays);
 
     }
 }

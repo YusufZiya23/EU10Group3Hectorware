@@ -45,16 +45,17 @@ public class CalendarPageByMeri {
     @FindBy(xpath = "//span[.='Busy']")
     public WebElement showUs;
 
-    @FindBy (xpath = "//*[@id=\"tab-app-sidebar-tab-details\"]/div[1]/div[6]/div[2]/div/div[2]/input")
+    @FindBy(xpath = "//input[@placeholder='Search or add categories']")
+    public WebElement inputCategories;
+
+    @FindBy (xpath = "//span[.='Non-working hours']")
     public WebElement categories;
 
-    @FindBy(xpath ="//*[@id=\"tab-app-sidebar-tab-details\"]/div[1]/div[6]/div[2]/div/div[3]/ul/li[6]/span/span/span")
-    public WebElement meeting;
 
-    @FindBy (xpath = "//*[@id=\"tab-app-sidebar-tab-details\"]/div[2]/button")
+    @FindBy (xpath = "(//button[@class='primary'])[1]")
     public WebElement saveBtn;
 
-    @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-view-day']")
+    @FindBy(xpath = "(//button[@aria-label='Actions'])[1]")
     public WebElement viewBtn;
 
     @FindBy (xpath = "//span[@class='action-button__icon icon-view-day']")
@@ -63,7 +64,7 @@ public class CalendarPageByMeri {
     @FindBy (xpath = "//span[@class='action-button__icon icon-view-week']")
     public WebElement week;
 
-    @FindBy (xpath = "//span[@class='action-button__icon icon-view-month']")
+    @FindBy (xpath = "//span[@class='action-button__icon icon-view-module']")
     public WebElement month;
 
 
