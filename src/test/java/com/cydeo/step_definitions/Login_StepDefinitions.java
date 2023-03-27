@@ -30,7 +30,7 @@ public class Login_StepDefinitions {
     }
     @Then("any user should verify the home page")
     public void any_user_should_verify_the_home_page() {
-        String expectedTitle = "Files - Hectorware - QAA";
+        String expectedTitle = "Files - Hectorware - QA";
         String actualTitle = Driver.getDriver().getTitle();
         Assert.assertTrue(actualTitle.equals(expectedTitle));
     }
