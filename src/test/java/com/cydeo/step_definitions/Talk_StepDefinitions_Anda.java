@@ -48,18 +48,18 @@ public class Talk_StepDefinitions_Anda {
 talkPageByAnda.ConversationNameBox.click();
     }
 
-    @Given("Write a {string}")
-    public void write_a(String conversationName) throws InterruptedException {
+    @Given("Write a conversation name")
+    public void write_a() throws InterruptedException {
        talkPageByAnda.ConversationNameBox.sendKeys("QA Engineers 1#");
 
        Thread.sleep(3000);
     }
-    @Then("verify {string} is same as the input")
-    public void verify_is_same_as_the_input(String conversationName) {
+    @Then("verify conversation name is same as the input")
+    public void verify_is_same_as_the_input() {
         String expectedConversationName= "QA Engineers 1#";
         String actualConversationName=talkPageByAnda.ConversationNameBox.getText();
 //there is a problem here, it can't verify, the test fails
-        Assert.assertEquals(actualConversationName, expectedConversationName);
+        Assert.assertTrue(expectedConversationName.equals(actualConversationName) );
     }
 
 
