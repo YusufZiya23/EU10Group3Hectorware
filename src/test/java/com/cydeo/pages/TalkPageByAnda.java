@@ -26,6 +26,10 @@ public class TalkPageByAnda {
     public WebElement ConversationNameModal;
 
 
+@FindBy (xpath = "//div[@aria-describedby='popover_u35bhvtm8x']//button")
+    public WebElement ConversationThreeDotsButton;
+
+
 
 
 
