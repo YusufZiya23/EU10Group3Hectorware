@@ -69,8 +69,35 @@ talkPageByAnda.ConversationNameBox.click();
     }
 
     @Then("Click the three dots button in the conversation named Andas Conversation")
-    public void clickTheThreeDotsButtonInTheConversationNamed() {
-talkPageByAnda.ConversationThreeDotsButton.click();
+    public void clickTheThreeDotsButtonInTheConversationNamed() throws InterruptedException {
 
+talkPageByAnda.ConversationThreeDotsButton.click();
+        Thread.sleep(3000);
+    }
+
+
+
+    @Then("verify that  Delete a conversation option is displayed")
+    public void verifyThatDeleteAConversationOptionIsDisplayed() {
+
+Assert.assertTrue(talkPageByAnda.DeleteConversationBox.getText().contains("Delete conversation"));
+    }
+
+    @Then("Click delete conversation button")
+    public void clickDeleteConversationButton() throws InterruptedException {
+        talkPageByAnda.DeleteConversationBox.click();
+        Thread.sleep(3000);
+    }
+
+
+    @And("user  click the yes button to confirm that he wants to delete the conversation")
+    public void userClickTheYesButtonToConfirmThatHeWantsToDeleteTheConversation() {
+        talkPageByAnda.DeleteConversationYesButton.click();
+
+    }
+
+    @Then("verify that the conversation is deleted")
+    public void verifyThatTheConversationIsDeleted() {
+        Assert.assertFalse(talkPageByAnda.AndasConversationBox.isDisplayed());
     }
 }
