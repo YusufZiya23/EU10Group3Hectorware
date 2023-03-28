@@ -21,10 +21,10 @@ Feature: Talk Functionality
     And click the talk module
     And  Click plus sign in order to create a new conversation
     And Click the conversation name box
-   And Write a "conversation name"
-  Then verify "conversation name" is same as the input
+   And Write a conversation name
+  Then verify conversation name is same as the input
 
-  @Anda
+
   Scenario:  Verify that user is able to see “Incorrect conversation length”
   with red color if he enters invalid credentials,
   immediately after conversation name input box

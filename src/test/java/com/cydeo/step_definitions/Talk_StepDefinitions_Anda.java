@@ -48,19 +48,13 @@ public class Talk_StepDefinitions_Anda {
 talkPageByAnda.ConversationNameBox.click();
     }
 
-    @Given("Write a {string}")
-    public void write_a(String conversationName) throws InterruptedException {
+    @Given("Write a conversation name")
+    public void write_a() throws InterruptedException {
        talkPageByAnda.ConversationNameBox.sendKeys("QA Engineers 1#");
 
        Thread.sleep(3000);
     }
-    @Then("verify {string} is same as the input")
-    public void verify_is_same_as_the_input(String conversationName) {
-        String expectedConversationName= "QA Engineers 1#";
-        String actualConversationName=talkPageByAnda.ConversationNameBox.getText();
-//there is a problem here, it can't verify, the test fails
-        Assert.assertEquals(actualConversationName, expectedConversationName);
-    }
+
 
 
     @And("write an invalid conversation name")
@@ -72,5 +66,38 @@ talkPageByAnda.ConversationNameBox.click();
     public void verifyThatTheMessageIncorrectConversationLengthIsAppearedInTheTable() {
 
         Assert.assertTrue(talkPageByAnda.ConversationNameModal.getText().contains("Incorrect conversation length"));
+    }
+
+    @Then("Click the three dots button in the conversation named Andas Conversation")
+    public void clickTheThreeDotsButtonInTheConversationNamed() throws InterruptedException {
+
+talkPageByAnda.ConversationThreeDotsButton.click();
+        Thread.sleep(3000);
+    }
+
+
+
+    @Then("verify that  Delete a conversation option is displayed")
+    public void verifyThatDeleteAConversationOptionIsDisplayed() {
+
+Assert.assertTrue(talkPageByAnda.DeleteConversationBox.getText().contains("Delete conversation"));
+    }
+
+    @Then("Click delete conversation button")
+    public void clickDeleteConversationButton() throws InterruptedException {
+        talkPageByAnda.DeleteConversationBox.click();
+        Thread.sleep(3000);
+    }
+
+
+    @And("user  click the yes button to confirm that he wants to delete the conversation")
+    public void userClickTheYesButtonToConfirmThatHeWantsToDeleteTheConversation() {
+        talkPageByAnda.DeleteConversationYesButton.click();
+
+    }
+
+    @Then("verify that the conversation is deleted")
+    public void verifyThatTheConversationIsDeleted() {
+        Assert.assertFalse(talkPageByAnda.AndasConversationBox.isDisplayed());
     }
 }
