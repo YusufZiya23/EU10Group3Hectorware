@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CalendarByMeri_StepDefinitions {
@@ -118,13 +119,40 @@ public class CalendarByMeri_StepDefinitions {
     @Then("User click on list option")
     public void user_click_on_list_option() {
 
+        calendarPageByMeri.viewBtn.click();
         calendarPageByMeri.list.click();
 
     }
     @Then("User should see {string} of the week in english")
-    public void user_should_see_of_the_week_in_english(List<String > expectedDays) {
+    public void user_should_see_of_the_week_in_english(List<String> expectedDays) {
 
-        System.out.println(expectedDays);
+        List<String> actualWeekDayList = new ArrayList<>();
+        for (WebElement actualWeekDay : getActualWeekDays()) {
+
+            String actualWeekDayText = actualWeekDay.getText();
+            actualWeekDayList.add(actualWeekDayText);
+        }
+        Assert.assertEquals(actualWeekDayList,expectedDays);
+
 
     }
+
+    public List<WebElement> getActualWeekDays(){
+
+        List<WebElement> listOfWeekDays = Driver.getDriver().findElements(By.cssSelector("a.fc-list-day-side-text"));
+        List<WebElement> list = new ArrayList<>();
+
+        for (int i = 0; i < listOfWeekDays.size(); i++) {
+            list.add(listOfWeekDays.get(i));
+        }
+
+        return list;
+    }
+
+    @Then("User should see calendar module")
+    public void user_should_see_calendar_module() {
+
+        Assert.assertTrue(calendarPageByMeri.calendarBtn.isDisplayed());
+    }
+
 }
