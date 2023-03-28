@@ -30,6 +30,9 @@ public class ContactsPage {
     @FindBy(xpath = "//header[@class='contact-header']")
     public WebElement emptyArea;
 
-    @FindBy(xpath = "//div[@id='MTU2NTE0NmUtNjg5OC00ZjU1LThiNDgtYWM4NGM2N2JhODRmfm5ldy1jb250YW']")
-    public WebElement contact;
+    @FindBy(xpath = "//div[@class='vue-recycle-scroller app-content-list ready direction-vertical showdetails']")
+    public WebElement contactList;
+
+    @FindBy(xpath = "//div[@class='app-content-details']")
+    public WebElement page;
 }
