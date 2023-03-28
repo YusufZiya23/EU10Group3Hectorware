@@ -33,7 +33,7 @@ public class CalendarPageByMeri {
     @FindBy(xpath = "(//span[.='Confirmed'])[1]")
     public WebElement status;
 
-    @FindBy(xpath = "//span[.='Confirmed']")
+    @FindBy(xpath = "(//span[.='Confirmed'])[2]")
     public WebElement confirmed;
 
     @FindBy(xpath = "//span[.='When shared show full event']")
@@ -70,6 +70,15 @@ public class CalendarPageByMeri {
 
     @FindBy (xpath = "//span[@class='action-button__icon icon-view-list']")
     public WebElement list;
+
+    @FindBy (xpath = "//div[@class='fc-event-time']")
+    public WebElement event;
+
+    @FindBy(xpath = "(//button[@class='icon action-item__menutoggle action-item__menutoggle--default-icon'])[6]")
+    public WebElement menuBtn;
+
+    @FindBy (xpath = "//span[@class='action-button__icon icon-delete']")
+    public WebElement delete;
 
 
 

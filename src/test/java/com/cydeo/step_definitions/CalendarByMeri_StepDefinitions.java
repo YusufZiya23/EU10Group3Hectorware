@@ -53,15 +53,13 @@ public class CalendarByMeri_StepDefinitions {
 
         calendarPageByMeri.firstDate.click();
         calendarPageByMeri.firstDate.clear();
-        //BrowserUtils.sleep(4);
         calendarPageByMeri.firstDate.sendKeys("from "+date+" at "+time1);
 
+        BrowserUtils.sleep(2);
         calendarPageByMeri.secondDate.click();
         calendarPageByMeri.secondDate.clear();
-        BrowserUtils.sleep(2);
-
         calendarPageByMeri.secondDate.sendKeys("to "+date+" at "+time2);
-        BrowserUtils.sleep(2);
+
 
     }
     @Then("User fill other fields and click save button")
@@ -72,10 +70,10 @@ public class CalendarByMeri_StepDefinitions {
         calendarPageByMeri.description.sendKeys(faker.letterify("Some text"));
 
         BrowserUtils.sleep(2);
-        calendarPageByMeri.status.click();
-        calendarPageByMeri.confirmed.click();
-        calendarPageByMeri.showSharedField.click();
-        calendarPageByMeri.onlyBusy.click();
+        //calendarPageByMeri.status.click();
+        //calendarPageByMeri.confirmed.click();
+        //calendarPageByMeri.showSharedField.click();
+        //calendarPageByMeri.onlyBusy.click();
         calendarPageByMeri.inputCategories.click();
         calendarPageByMeri.categories.click();
 
@@ -154,5 +152,35 @@ public class CalendarByMeri_StepDefinitions {
 
         Assert.assertTrue(calendarPageByMeri.calendarBtn.isDisplayed());
     }
+
+    @Then("User click on that event")
+    public void user_click_on_that_event() {
+
+        calendarPageByMeri.event.click();
+        BrowserUtils.sleep(2);
+    }
+    @Then("User  changes title in title field")
+    public void user_changes_title_in_title_field() {
+
+        calendarPageByMeri.eventTitleField.clear();
+        calendarPageByMeri.eventTitleField.sendKeys("QA engineer");
+    }
+    @Then("User clicks update button")
+    public void user_click_save_button() {
+
+        calendarPageByMeri.saveBtn.click();
+
+    }
+
+    @Then("user clicks on that event and delete it")
+    public void user_clicks_on_that_event_and_delete_it() {
+
+        calendarPageByMeri.event.click();
+        BrowserUtils.sleep(2);
+       // calendarPageByMeri.menuBtn.click();
+
+        //calendarPageByMeri.delete.click();
+    }
+
 
 }
