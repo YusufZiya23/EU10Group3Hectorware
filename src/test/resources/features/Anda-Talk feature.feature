@@ -47,3 +47,27 @@ Feature: Talk Functionality
 		And navigate to talk module
 		And click the talk module
 		Then Click the three dots button in the conversation named Andas Conversation
+
+
+
+	@HEC10-192
+	Scenario: Verify that user  see a box with some options, the last one should be "Delete a conversation" option
+		Given login to the hectorware
+		And navigate to talk module
+		And click the talk module
+		And Click the three dots button in the conversation named Andas Conversation
+		Then verify that  Delete a conversation option is displayed
+
+
+
+	@HEC10-194
+	Scenario:  Verify that user can click "Delete a conversation" option
+		Given login to the hectorware
+		And navigate to talk module
+		And click the talk module
+		And Click the three dots button in the conversation named Andas Conversation
+		And verify that  Delete a conversation option is displayed
+		And Click delete conversation button
+		Then  user  click the yes button to confirm that he wants to delete the conversation
+
+

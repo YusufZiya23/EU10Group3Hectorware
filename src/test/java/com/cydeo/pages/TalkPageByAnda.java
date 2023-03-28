@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import javax.xml.xpath.XPath;
+
 public class TalkPageByAnda {
 
     public TalkPageByAnda(){
@@ -26,14 +28,21 @@ public class TalkPageByAnda {
     public WebElement ConversationNameModal;
 
 
-@FindBy (xpath = "//div[@aria-describedby='popover_u35bhvtm8x']//button")
+@FindBy (xpath = "//button[@class='icon action-item__menutoggle action-item__menutoggle--default-icon']")
     public WebElement ConversationThreeDotsButton;
 
 
 
 
+@FindBy(xpath = "//li[@class='action critical']//button//span[2]")
+    public WebElement DeleteConversationBox;
 
+@FindBy(xpath = "//a[@aria-label='Conversation, Andas Conversation']")
+    public WebElement AndasConversationBox;
 
+@FindBy(xpath = "//a[@id='conversation_qgrbvuao']")
+    public WebElement AndasConversationBox2;
 
-
+@FindBy(xpath = "//div[@class='oc-dialog-buttonrow twobuttons']//button[2]")
+    public WebElement DeleteConversationYesButton;
 }
