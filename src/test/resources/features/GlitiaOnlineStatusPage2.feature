@@ -13,7 +13,7 @@ Feature: Online status
     And   user click on profile name
 
 
-  @Glitia
+
   Scenario: User should be able to Display Profile Name and Status Menu
 
     Then  user verifies to see profile name and Status menu
