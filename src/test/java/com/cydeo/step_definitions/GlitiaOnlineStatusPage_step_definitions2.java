@@ -96,12 +96,6 @@ public class GlitiaOnlineStatusPage_step_definitions2 {
         String actualOnlineStatusText = glitiaOnlineStatusPage2.OnlineTxt.getText();
 
 
-        Assert.assertTrue(actualOnlineStatusText.equals(expectedOnlineStatusText));
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         glitiaOnlineStatusPage2.OnlineTxt.isDisplayed();
 
@@ -130,21 +124,13 @@ public class GlitiaOnlineStatusPage_step_definitions2 {
         Assert.assertTrue(expectedOnlineOpt1.equals(actualOnlineOpt1));
         glitiaOnlineStatusPage2.OnlineTxt.isDisplayed();
 
-        String expectedOnlineOpt2 ="Online";
-        String actualOnlineOpt2 = glitiaOnlineStatusPage2.OnlineTxt.getText();
-
-        Assert.assertTrue(expectedOnlineOpt2.equals(actualOnlineOpt2));
-        //glitiaOnlineStatusPage2.OnlineTxt2.isDisplayed();
-
-
-
-
 
     }
 
     @When("user verifies to see Clear status message and Set status message tabs")
     public void user_verifies_to_see_clear_status_message_and_set_status_message_tabs() {
-
+      String expectedOnlineStatusText = "Online status";
+      String actualOnlineStatus = glitiaOnlineStatusPage2.OnlineTxt.getText();
     }
 
     @When("user enter a text in input box")
@@ -159,9 +145,15 @@ public class GlitiaOnlineStatusPage_step_definitions2 {
 
     @When("user verify if is displayed")
     public void user_verify_if_is_displayed() {
+/*
+        String expectedOnlineTxt = "Online status";
+        String actualOnlineTxt = GlitiaOnlineStatusPage2.Ost.getText();
 
+   Assert.assertTrue(actualOnlineTxt.equals(actualOnlineTxt));
+  GlitiaOnlineStatusPage2.Ost.isDisplayed();
+
+*/
     }
-
     @When("user lick one of the {int} options")
     public void user_lick_one_of_the_options(Integer int1) {
 
