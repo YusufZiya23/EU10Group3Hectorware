@@ -1,5 +1,5 @@
 Feature: calendar functionality
-  @meri
+
   Scenario: User can see the Calendar module and create new event
     Given User is on home page
     When User click on calendar button
@@ -20,7 +20,7 @@ Feature: calendar functionality
       Then User should see view button
       And User should be able to change by day,week,month
 
-
+  @meri
     Scenario: Verify that in view list page appears in English
         Given User is on home page
         When User click on calendar button
