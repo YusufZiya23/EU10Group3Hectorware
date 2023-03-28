@@ -66,8 +66,27 @@ public class Contacts_StepDefinitions {
    @Then("Verify new contact is shown in contact list")
     public void verify_new_contact_is_shown_in_contact_list() {
 
-       Assert.assertTrue(contactsPage.contact.isDisplayed());
+       Assert.assertTrue(contactsPage.contactList.getText().contains("Cedric Diggory"));
 
+    }
+
+    @When("Enter invalid {string} in to Name inbox")
+    public void enter_invalid_in_to_name_inbox(String string) {
+        contactsPage.name.click();
+        contactsPage.name.sendKeys(Keys.DELETE + "Cedric_Diggory123asdfg");
+
+    }
+    @When("Enter invalid {string} in to Company inbox")
+    public void enter_invalid_in_to_company_inbox(String string) {
+        contactsPage.company.sendKeys("!#Amaz12390on@");
+    }
+    @When("Enter invalid {string} in to Title inbox")
+    public void enter_invalid_in_to_title_inbox(String string) {
+        contactsPage.title.sendKeys("&*Mr()67940302");
+    }
+    @Then("Verify Invalid Name, Invalid Company or Invalid Title error message occurs")
+    public void verify_invalid_name_invalid_company_or_invalid_title_error_message_occurs() {
+Assert.assertTrue(contactsPage.page.getText().contains("Invalid Name, Invalid Company or Invalid Title"));
     }
 
 
