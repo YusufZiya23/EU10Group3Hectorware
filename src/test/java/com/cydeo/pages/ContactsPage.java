@@ -35,4 +35,37 @@ public class ContactsPage {
 
     @FindBy(xpath = "//div[@class='app-content-details']")
     public WebElement page;
+
+    @FindBy(id = "M2Q3ODZiZmUtY2I1Yi00OGRlLThjZjMtYjYyM2E2MDExNzVjfm5ldy1jb250YW")
+    public WebElement cedric;
+
+    @FindBy(id = "contact-fullname")
+    public WebElement contactName;
+
+    @FindBy(id = "contact-org")
+    public WebElement contactCom;
+
+    @FindBy(id = "contact-title")
+    public WebElement contactTitle;
+
+    @FindBy(xpath = "//div[@class='app-content-list-item-line-one']")
+    public WebElement createdContact;
+
+    @FindBy(xpath = "//div[@class='app-content-details']")
+    public WebElement contactsPage;
+
+    @FindBy(xpath = "//div[@class='action-item header-menu']/div/div/button")
+    public WebElement threeDots;
+
+    @FindBy(xpath = "/html/body/div[6]/div/div[1]/div[1]/div/ul/li[1]/a")
+    public WebElement downloadOption;
+
+    @FindBy(xpath = "/html/body/div[6]/div/div[1]/div[1]/div/ul/li[2]/button")
+    public WebElement generateOption;
+
+    @FindBy(xpath = "/html/body/div[6]/div/div[1]/div[1]/div/ul/li[3]/button")
+    public WebElement deleteOption;
+
+    @FindBy(xpath = "//*[@id=\"app-content-wrapper\"]/div[2]/div")
+    public WebElement noContactPage;
 }
