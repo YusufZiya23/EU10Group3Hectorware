@@ -89,6 +89,130 @@ public class Contacts_StepDefinitions {
 Assert.assertTrue(contactsPage.page.getText().contains("Invalid Name, Invalid Company or Invalid Title"));
     }
 
+    @When("click {string}")
+    public void click(String string) {
+        contactsPage.cedric.click();
+    }
+    @When("edit {string} with entering valid name")
+    public void edit_with_entering_valid_name(String string) {
+        contactsPage.contactName.click();
+        contactsPage.contactName.sendKeys(Keys.CONTROL, "a");
+        contactsPage.contactName.sendKeys("Sirius Black");
+    }
+    @When("edit {string} with entering valid company")
+    public void edit_with_entering_valid_company(String string) {
+        contactsPage.contactCom.click();
+        contactsPage.contactCom.sendKeys(Keys.CONTROL, "a");
+        contactsPage.contactCom.sendKeys("Amazon");
+    }
+    @When("edit {string} with entering valid title")
+    public void edit_with_entering_valid_title(String string) throws InterruptedException {
+        contactsPage.contactTitle.click();
+        contactsPage.contactTitle.sendKeys(Keys.CONTROL, "a");
+        contactsPage.contactTitle.sendKeys("Wz");
+        Thread.sleep(3000);
+    }
+
+
+    @Then("Verify edited contact is shown in contact list")
+    public void verify_edited_contact_is_shown_in_contact_list() {
+       Assert.assertTrue(contactsPage.contactList.getText().contains("Sirius Black"));
+    }
+
+    @When("edit name with entering invalid name")
+    public void edit_name_with_entering_invalid_name() {
+        contactsPage.contactName.click();
+        contactsPage.contactName.sendKeys(Keys.CONTROL, "a");
+        contactsPage.contactName.sendKeys("@#$_Sirius! Bl45890ack");
+    }
+    @When("edit company with entering invalid company")
+    public void edit_company_with_entering_invalid_company() {
+        contactsPage.contactCom.click();
+        contactsPage.contactCom.sendKeys(Keys.CONTROL, "a");
+        contactsPage.contactCom.sendKeys("Ama_?zo//n45346453");
+    }
+    @When("edit title with entering invalid title")
+    public void edit_title_with_entering_invalid_title() {
+        contactsPage.contactTitle.click();
+        contactsPage.contactTitle.sendKeys(Keys.CONTROL, "a");
+        contactsPage.contactTitle.sendKeys("W^&*z!@#<>7842384298");
+    }
+
+    @Then("click on edited contact")
+    public void click_on_edited_contact() {
+       contactsPage.contactName.click();
+    }
+
+    @Then("Verify name is shown on detail information page")
+    public void verify_name_is_shown_on_detail_information_page() {
+
+        Assert.assertTrue(contactsPage.contactName.isDisplayed());
+    }
+
+    @Then("Verify company is shown on detail information page")
+    public void verify_company_is_shown_on_detail_information_page() {
+        Assert.assertTrue(contactsPage.contactCom.isDisplayed());
+    }
+
+    @Then("Verify title is shown on detail information page")
+    public void verify_title_is_shown_on_detail_information_page() {
+       Assert.assertTrue(contactsPage.contactTitle.isDisplayed());
+    }
+
+    @Then("Click on created contact")
+    public void click_on_created_contact() {
+        contactsPage.createdContact.click();
+    }
+    @Then("Verify contact's name is shown on detail information page")
+    public void verify_contact_s_name_is_shown_on_detail_information_page() {
+       Assert.assertTrue(contactsPage.name.isDisplayed());
+    }
+    @Then("Verify contact's company is shown on detail information page")
+    public void verify_contact_s_company_is_shown_on_detail_information_page() {
+       Assert.assertTrue(contactsPage.company.isDisplayed());
+    }
+    @Then("Verify contact's title is shown on detail information page")
+    public void verify_contact_s_title_is_shown_on_detail_information_page() {
+       Assert.assertTrue(contactsPage.title.isDisplayed());
+    }
+
+    @Given("Click on any contact")
+    public void click_on_any_contact() {
+        contactsPage.createdContact.click();
+    }
+    @Then("Verify selected contact's  page is opened")
+    public void verify_selected_contact_s_page_is_opened() {
+       Assert.assertTrue(contactsPage.contactsPage.isDisplayed());
+    }
+    @Then("Click the three dots on the right side of the page")
+    public void click_the_three_dots_on_the_right_side_of_the_page() {
+        contactsPage.threeDots.click();
+    }
+
+    @Then("Verify three dots button has three options: Download, Generate QR Code and Delete")
+    public void verify_three_dots_button_has_three_options_download_generate_qr_code_and_delete() {
+    Assert.assertTrue(contactsPage.downloadOption.isDisplayed());
+    Assert.assertTrue(contactsPage.generateOption.isDisplayed());
+
+    Assert.assertTrue(contactsPage.deleteOption.isDisplayed());
+    }
+    @Then("Click Delete")
+    public void click_delete() {
+       contactsPage.deleteOption.click();
+    }
+
+    @Then("Verify No contact selected page is opened")
+    public void verifyNoContactSelectedPageIsOpened() {
+        Assert.assertTrue(contactsPage.noContactPage.isDisplayed());
+    }
+   @Then("Verify contact has been removed from the contact list")
+    public void verify_contact_has_been_removed_from_the_contact_list() {
+       Assert.assertTrue(contactsPage.createdContact.isEnabled());
+    }
+
+
+    
+
 
 
 
