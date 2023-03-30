@@ -106,16 +106,18 @@ Assert.assertTrue(contactsPage.page.getText().contains("Invalid Name, Invalid Co
         contactsPage.contactCom.sendKeys("Amazon");
     }
     @When("edit {string} with entering valid title")
-    public void edit_with_entering_valid_title(String string) throws InterruptedException {
+    public void edit_with_entering_valid_title(String string)  {
         contactsPage.contactTitle.click();
         contactsPage.contactTitle.sendKeys(Keys.CONTROL, "a");
         contactsPage.contactTitle.sendKeys("Wz");
-        Thread.sleep(3000);
+
+
     }
 
 
     @Then("Verify edited contact is shown in contact list")
-    public void verify_edited_contact_is_shown_in_contact_list() {
+    public void verify_edited_contact_is_shown_in_contact_list()  {
+
        Assert.assertTrue(contactsPage.contactList.getText().contains("Sirius Black"));
     }
 
