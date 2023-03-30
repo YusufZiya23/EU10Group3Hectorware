@@ -1,6 +1,8 @@
 Feature: Contacts function
 
   User story: As a user, I should be able to create a new contact so that I can communicate with
+  User Story: As a user, I should be able to delete any contact
+  User Story: As a user, I should be able to edit any contact
 
 
 
