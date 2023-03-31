@@ -121,7 +121,7 @@ public class CalendarByMeri_StepDefinitions {
         calendarPageByMeri.list.click();
 
     }
-    @Then("User should see {string} of the week in english")
+    @Then("User should see days of the week in english")
     public void user_should_see_of_the_week_in_english(List<String> expectedDays) {
 
         List<String> actualWeekDayList = new ArrayList<>();
@@ -131,8 +131,6 @@ public class CalendarByMeri_StepDefinitions {
             actualWeekDayList.add(actualWeekDayText);
         }
         Assert.assertEquals(actualWeekDayList,expectedDays);
-
-
     }
 
     public List<WebElement> getActualWeekDays(){
@@ -163,6 +161,7 @@ public class CalendarByMeri_StepDefinitions {
     public void user_changes_title_in_title_field() {
 
         calendarPageByMeri.eventTitleField.clear();
+        BrowserUtils.sleep(2);
         calendarPageByMeri.eventTitleField.sendKeys("QA engineer");
     }
     @Then("User clicks update button")
@@ -175,11 +174,12 @@ public class CalendarByMeri_StepDefinitions {
     @Then("user clicks on that event and delete it")
     public void user_clicks_on_that_event_and_delete_it() {
 
-        calendarPageByMeri.event.click();
         BrowserUtils.sleep(2);
-       // calendarPageByMeri.menuBtn.click();
+        calendarPageByMeri.eventTitle.click();
+        BrowserUtils.sleep(2);
+        calendarPageByMeri.menuBtn.click();
 
-        //calendarPageByMeri.delete.click();
+        calendarPageByMeri.delete.click();
     }
 
 
