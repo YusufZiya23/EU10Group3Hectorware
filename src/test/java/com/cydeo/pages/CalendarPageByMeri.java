@@ -74,11 +74,14 @@ public class CalendarPageByMeri {
     @FindBy (xpath = "//div[@class='fc-event-time']")
     public WebElement event;
 
-    @FindBy(xpath = "(//button[@class='icon action-item__menutoggle action-item__menutoggle--default-icon'])[6]")
+    @FindBy(xpath = "(//button[starts-with(@aria-controls,'menu')])[8]")
     public WebElement menuBtn;
 
     @FindBy (xpath = "//span[@class='action-button__icon icon-delete']")
     public WebElement delete;
+
+    @FindBy(xpath = "//div[@class='fc-event-main-frame']//div[@class='fc-event-title-container']")
+    public WebElement eventTitle;
 
 
 
