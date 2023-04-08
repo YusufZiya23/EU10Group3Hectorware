@@ -1,4 +1,5 @@
 Feature: Database testing
+
   Background: Login to librarian and search for users
     Given that you are in library and log in as librarian
     When you are at "users"
@@ -24,3 +25,18 @@ Feature: Database testing
     Examples:
       | ID    |
       | 10190 |
+
+
+#Editing information for a given user
+#Editing information for a given user
+  Scenario Outline: Editing information for a given user
+    And search for a user with id "<id>"
+
+    Examples:
+      | id    |
+      | 10140 |
+
+    Scenario: Adding a new user on the database
+      And you click add user
+      And you fill all necessary fields
+      Then you should see the new added user on the UI
