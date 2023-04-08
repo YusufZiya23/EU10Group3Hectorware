@@ -19,6 +19,46 @@ public class BooKManagementPage_Berti {
     @FindBy(xpath = "//*[@id=\"tbl_users_filter\"]/label/input")
     public WebElement searchBox;
 
+    @FindBy(xpath = "//div[@class='modal-footer']//button[@type='submit']")
+    public WebElement editSaveChanges;
+
+
+    @FindBy(xpath = "//*[@id='tbl_users']/tbody/tr/td[1]")
+    public WebElement editUser;
+
+    @FindBy(xpath = "//*[@id=\"users\"]/div[1]/div[1]/span/a")
+    public WebElement addUser;
+
+    @FindBy(xpath = "//form[@id='add_user_form']//input[@name='full_name']")
+    public WebElement addFullName;
+
+    @FindBy(xpath = "//form[@id='add_user_form']//input[@name='password']")
+    public WebElement addPassword;
+
+    @FindBy(xpath = "//form[@id='add_user_form']//input[@name='email']")
+    public WebElement addEmail;
+
+    @FindBy(xpath = "//select[@name='user_group_id']")
+    public WebElement addUserGroupDropDown;
+
+    @FindBy(xpath = "//div[@class='col-6']//select[@name='status']")
+    public WebElement addStatusDropDown;
+
+
+    @FindBy(xpath = "//form[@id='add_user_form']//input[@name='start_date']")
+    public WebElement addStartDate;
+
+    @FindBy(xpath = "//form[@id='add_user_form']//input[@name='end_date']")
+    public WebElement addEndDate;
+
+    @FindBy(xpath = "//form[@id='add_user_form']//input[@name='address']")
+    public WebElement addAddress;
+
+
+    @FindBy(xpath = "//div[@class='modal-footer']//button[@type='submit']")
+    public WebElement addSaveButton;
+
+
     @FindBy(xpath = "//*[@id='tbl_users']/tbody/tr/td[2]")
     public WebElement userId;
 

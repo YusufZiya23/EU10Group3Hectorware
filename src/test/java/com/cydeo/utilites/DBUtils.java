@@ -11,12 +11,15 @@ public class DBUtils {
     private static Statement statement;
     private static ResultSet resultSet;
 
+    /**
+     * Creating conections
+     */
     public static void createConnection() {
         String dbUrl = ConfigurationReader.getProperty("qa1.library.url");
         String dbUsername = ConfigurationReader.getProperty("qa1.library.username");
         String dbPassword = ConfigurationReader.getProperty("qa1.library.password");
         try {
-            connection= (Connection) DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+            connection= DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
