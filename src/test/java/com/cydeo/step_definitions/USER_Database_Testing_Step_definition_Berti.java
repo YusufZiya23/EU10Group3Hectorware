@@ -5,6 +5,7 @@ import com.cydeo.pages.LoginPageLibrarian;
 import com.cydeo.pages.PageBase;
 import com.cydeo.utilites.BrowserUtils;
 import com.cydeo.utilites.ConfigurationReader;
+import com.cydeo.utilites.DBUtils;
 import com.cydeo.utilites.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,6 +14,8 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.Map;
 
 public class USER_Database_Testing_Step_definition_Berti extends PageBase {
     LoginPageLibrarian loginPage = new LoginPageLibrarian();
@@ -46,7 +49,7 @@ public class USER_Database_Testing_Step_definition_Berti extends PageBase {
     public void you_are_at(String str) {
         if (str.equalsIgnoreCase("users")) {
             users.click();
-        } else if (str.equalsIgnoreCase("books")){
+        } else if (str.equalsIgnoreCase("books")) {
             books.click();
         }
 
@@ -94,6 +97,78 @@ public class USER_Database_Testing_Step_definition_Berti extends PageBase {
         System.out.println("booKManagementPage_berti.email.getText() = " + booKManagementPage_berti.email.getText());
         System.out.println("booKManagementPage_berti.group.getText() = " + booKManagementPage_berti.group.getText());
         System.out.println("booKManagementPage_berti.status.getText() = " + booKManagementPage_berti.status.getText());
+    }
+
+    @Then("UI part must match with DataBase for given ID {string}")
+    public void ui_part_must_match_with_data_base_for_given_id(String id) {
+        String userId = booKManagementPage_berti.userId.getText();
+        String fullName = booKManagementPage_berti.fullName.getText();
+        String email = booKManagementPage_berti.email.getText();
+        String group = booKManagementPage_berti.group.getText();
+        String status = booKManagementPage_berti.status.getText();
+
+        DBUtils.createConnection();
+
+        String query = "select id, full_name, email, status, start_date, end_date, address  from users\n" +
+                "where id=" + id;
+        Map<String, Object> dbData = DBUtils.getRowMap(query);
+
+        Assert.assertEquals(userId, dbData.get("id"));
+        Assert.assertEquals(fullName, dbData.get("full_name"));
+        Assert.assertEquals(email, dbData.get("email"));
+        Assert.assertEquals(group, dbData.get("group"), "group does not match");
+        Assert.assertEquals(status, dbData.get("status"));
+
+
+        //System.out.println("dbData.get(\"id\") = " + dbData.get("id"));
+        //System.out.println("dbData.get(\"full_name\") = " + dbData.get("full_name"));
+        //System.out.println("dbData.get(\"email\") = " + dbData.get("email"));
+        //System.out.println("dbData.get(\"status\") = " + dbData.get("status"));
+
+        //System.out.println("userId = " + userId);
+        //System.out.println("fullName = " + fullName);
+        //System.out.println("email = " + email);
+        //System.out.println("status = " + status);
+        //System.out.println("group = " + group);
+
+    }
+
+    @When("search for a user with id {string}")
+    public void search_for_a_user_with_id(String id) {
+        BrowserUtils.waitFor(3);
+        booKManagementPage_berti.searchBox.sendKeys(id + Keys.ENTER);
+        BrowserUtils.waitFor(3);
+        booKManagementPage_berti.editUser.click();
+        BrowserUtils.waitFor(3);
+        booKManagementPage_berti.editFullName.clear();
+        booKManagementPage_berti.editFullName.sendKeys("Defrim" + Keys.ENTER);
+        BrowserUtils.clickWithJS(booKManagementPage_berti.editSaveChanges);
+
+    }
+
+    @When("you click add user")
+    public void you_click_add_user() {
+        booKManagementPage_berti.addUser.click();
+    }
+
+    @When("you fill all necessary fields")
+    public void you_fill_all_necessary_fields() {
+        BrowserUtils.waitFor(3);
+        booKManagementPage_berti.addFullName.sendKeys("Albert");
+        booKManagementPage_berti.addEmail.clear();
+        BrowserUtils.waitFor(3);
+        booKManagementPage_berti.addEmail.sendKeys("Albert@gmail.com");
+        booKManagementPage_berti.addPassword.clear();
+        BrowserUtils.waitFor(3);
+        booKManagementPage_berti.addPassword.sendKeys("12345");
+        booKManagementPage_berti.addSaveButton.click();
+
+    }
+
+    @Then("you should see the new added user on the UI")
+    public void you_should_see_the_new_added_user_on_the_ui() {
+
+
     }
 
 
