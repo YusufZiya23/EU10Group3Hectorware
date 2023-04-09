@@ -40,9 +40,9 @@ Feature: calendar functionality
     When User click to new event button
     Then User should see in right side Event title field
     And User enters random text in title field
-    And  User  fills date "04/03/2023" and time "10.00" and "11.00" in both fields
+    And  User  fills date "04/09/2023" and time "10.00" and "11.00" in both fields
     And User fill other fields and click save button
-    Then User should see  event date "2023-04-03" and time "10:00 AM - 11:00 AM" on the calendar
+    Then User should see  event date "2023-04-09" and time "10:00 AM - 11:00 AM" on the calendar
     And User click on that event
     And User  changes title in title field
     Then User clicks update button
