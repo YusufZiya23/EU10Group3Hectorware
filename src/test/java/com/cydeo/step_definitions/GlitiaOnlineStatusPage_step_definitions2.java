@@ -77,15 +77,17 @@ public class GlitiaOnlineStatusPage_step_definitions2 {
        // Thread.sleep(3000);
     }
 
-    @When("user click Set status message")
-    public void user_click_set_status_message() throws InterruptedException {
 
+
+    @And("user click Set status messages")
+    public void userClickSetStatusMessages() throws InterruptedException {
         glitiaOnlineStatusPage2.OnlineStatusBox.isDisplayed();
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             System.out.println("Is ok!");
         }
+
     }
 
 
@@ -138,8 +140,8 @@ public class GlitiaOnlineStatusPage_step_definitions2 {
 
     }
 
-    @When("user Click on Set status message")
-    public void user_click_on_set_status_message() {
+    @And("user Click on Set status messages")
+    public void userClickOnSetStatusMessages() {
 
     }
 
@@ -179,6 +181,9 @@ public class GlitiaOnlineStatusPage_step_definitions2 {
     public void userClickOnStatusMenu() {
 
     }
+
+
+
 
 
 }

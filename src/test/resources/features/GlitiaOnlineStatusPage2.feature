@@ -1,3 +1,4 @@
+
 Feature: Online status
 
   User Story: User can change Online Status
@@ -13,7 +14,7 @@ Feature: Online status
     And   user click on profile name
 
 
-
+  @Glitia
   Scenario: User should be able to Display Profile Name and Status Menu
 
     Then  user verifies to see profile name and Status menu
@@ -24,12 +25,11 @@ Feature: Online status
     And  user verifies to see profile name and Status menu
     And  user click on status menu
     And  user Click on Online option
-    And  user click Set status message
+    And  user click Set status messages
     Then  user verifies to see status is changed Online.
 
-
-
-  Scenario: User should be able to change "Status messages"
+  @Glitia
+   Scenario: User should be able to change "Status messages"
 
     And user verifies to see profile name and Status menu
     And user click on Status menu
@@ -37,7 +37,7 @@ Feature: Online status
     And user verifies to see all the 5 options
     And user verifies to see Clear status message and Set status message tabs
     And user enter a text in input box
-    And user Click on Set status message
+    And user Click on Set status messages
     And user verify if is displayed
     And  user lick one of the 5 options
     And user click on Set status message
