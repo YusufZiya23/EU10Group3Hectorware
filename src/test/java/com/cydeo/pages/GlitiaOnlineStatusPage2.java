@@ -9,7 +9,7 @@ public class GlitiaOnlineStatusPage2 {
     public GlitiaOnlineStatusPage2() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
+//......
 
     @FindBy(xpath = "//input[@id='user']")
     public static WebElement inUsername;

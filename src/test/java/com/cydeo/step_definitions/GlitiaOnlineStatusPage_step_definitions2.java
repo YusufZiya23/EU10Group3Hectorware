@@ -14,7 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 
 public class GlitiaOnlineStatusPage_step_definitions2 {
 
-    // LoginPage loginPage = new LoginPage();
+     LoginPage loginPage = new LoginPage();
 
     GlitiaOnlineStatusPage2 glitiaOnlineStatusPage2 = new GlitiaOnlineStatusPage2();
 
