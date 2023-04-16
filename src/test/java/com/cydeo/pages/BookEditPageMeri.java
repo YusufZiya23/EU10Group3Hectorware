@@ -58,5 +58,8 @@ public class BookEditPageMeri {
     @FindBy(xpath = "//button[.='Save changes']")
     public WebElement saveChanges;
 
+    @FindBy (xpath = "//h5[.='Edit Book Information']")
+    public WebElement editBookInfo;
+
 
 }

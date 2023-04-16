@@ -79,7 +79,7 @@ public class BookEdit_StepDefs_Meri {
     }
 
     @When("Verify that year parameter should have only digits")
-    public void verify_that_year_parameter_should_have_only_digits() {
+    public void verify_that_year_parameter_should_have_only_digits() throws InterruptedException {
 
 
         bookEditPageMeri.firstEditBtn.click();
@@ -87,12 +87,16 @@ public class BookEdit_StepDefs_Meri {
         bookEditPageMeri.year.clear();
         bookEditPageMeri.year.sendKeys("snbkhg");
         bookEditPageMeri.saveChanges.click();
+        Thread.sleep(4);
+        Assert.assertTrue(bookEditPageMeri.saveChanges.isDisplayed());
+        DBUtils.sleep(4);
+        Assert.assertTrue(bookEditPageMeri.editBookInfo.isDisplayed());
 
 
     }
 
     @When("Verify that all categories are in list")
-    public void verify_that_all_are_in_list() {
+    public void verify_that_all_categories_are_in_list(List<String> expectedCategories) {
 
         bookEditPageMeri.firstEditBtn.click();
 
@@ -102,24 +106,26 @@ public class BookEdit_StepDefs_Meri {
 
         List<WebElement> allCategories = select.getOptions();
 
-        List<String > expectedCategories = new ArrayList<>(Arrays.asList("Action and Adventure", "Anthology",
-                "Classic", "Comic and Graphic Novel", "Crime and Detective", "Drama",
-                "Fable", "Fairy Tale", "Fan-Fiction", "Fantasy", "Historical Fiction",
-                "Horror, Science Fiction", "Biography/Autobiography", "Humor", "Romance",
-                "Short Story", "Essay", "Memoir", "Poetry"));
+
         System.out.println("expectedCategories = " + expectedCategories);
 
         List<String> actualCategories = new ArrayList<>();
+
         for (int i = 0; i < allCategories.size(); i++) {
+
             actualCategories.add(allCategories.get(i).getText());
 
         }
 
+        for (int i = 0; i < expectedCategories.size(); i++) {
+
+            Assert.assertEquals(expectedCategories.get(i),actualCategories.get(i));
+
+//            System.out.println("expectedCategories.get(i) = " + expectedCategories.get(i));
+//            System.out.println("actualCategories.get(i) = " + actualCategories.get(i));
+        }
 
         System.out.println("actualCategories = " + actualCategories);
-
-        Assert.assertEquals(actualCategories,expectedCategories);
-
 
     }
 
@@ -128,7 +134,8 @@ public class BookEdit_StepDefs_Meri {
 
         String query = "select  name from book_categories";
 
-        List<Object> dbCategories = DBUtils.getRowList(query);
+        List<List<Object>> dbCategories = DBUtils.getQueryResultList(query);
+
 
         System.out.println("dbCategories = " + dbCategories);
 
@@ -140,27 +147,34 @@ public class BookEdit_StepDefs_Meri {
 
         List<WebElement> allCategories = select.getOptions();
 
+        List<String> actualCategories = new ArrayList<>();
 
+        for (int i = 0; i < allCategories.size(); i++) {
+            actualCategories.add(allCategories.get(i).getText());
 
+            Assert.assertEquals(actualCategories.get(i),dbCategories.get(i).toString());
 
+        }
     }
 
 
     @When("Librarian can select related category using dropdown")
     public void librarian_can_select_related_category_using_dropdown() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
+
     }
 
     @When("Librarian can use show  records dropdown for getting number")
     public void librarian_can_use_show_records_dropdown_for_getting_number() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
     }
 
     @Then("Librarian can find book by using search box")
     public void librarian_can_find_book_by_using_search_box() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
+
     }
 }
